@@ -1,7 +1,7 @@
 import { add_board } from "../view/viewport.js";
 
-export function handleClick() {
-
+export let handleClick = () => {
+    console.log('button clicked!');
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/add_board", true);
     xhr.onreadystatechange = () => {
