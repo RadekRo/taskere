@@ -8,3 +8,12 @@ def add_board_to_database(cursor, title:str):
     """
     data = {'title': title}
     cursor.execute(query, data)
+
+@database.connection_handler
+def get_boards(cursor):
+    query = """
+    SELECT *
+    FROM question
+    """
+    cursor.execute(query)
+    return cursor.fetchall()
