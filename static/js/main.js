@@ -1,5 +1,5 @@
 import { add_board } from "./view/boardCreator.js";
-import { mainWindow } from "./view/htmlBuilder.js";
+import { mainWindow, addBoardButton } from "./view/htmlBuilder.js";
 import { handleClick } from "./controller/boardsManager.js"
 import { createHeader, createMain } from "./view/htmlBuilder.js";
 
@@ -12,6 +12,6 @@ createMain();
 mainWindow.addEventListener('click', function(event) {
     if (event.target.id === 'add_board') {
         handleClick();
-        mainWindow.appendChild(add_board('A new board was born'))
+        mainWindow.insertBefore(add_board('A new board was born'), addBoardButton)
     }
 });
