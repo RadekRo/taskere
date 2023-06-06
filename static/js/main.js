@@ -1,5 +1,5 @@
 import { add_board } from "./view/viewport.js";
-import { main_view } from "./view/viewport.js";
+import { mainWindow } from "./view/htmlBuilder.js";
 import { handleClick } from "./controller/boardsManager.js"
 import { createHeader, createMain } from "./view/htmlBuilder.js";
 
@@ -16,8 +16,8 @@ let add_button = () => {
 createHeader();
 createMain();
 
-// main_view.addEventListener('click', function(event) {
-//     if (event.target.id === 'add_board') {
-//         handleClick();
-//     }
-// });
+mainWindow.addEventListener('click', function(event) {
+    if (event.target.id === 'add_board') {
+        handleClick();
+    }
+});
