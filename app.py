@@ -9,7 +9,7 @@ def index():
 
 @app.route("/add_board")
 def add_board():
-    data_manager.add_board_to_database("dupa_blada")
+    # data_manager.add_board_to_database("dupa_blada")
     data = {'message': 'board added to the base'}
     return jsonify(data)
 

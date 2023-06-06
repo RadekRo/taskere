@@ -1,4 +1,4 @@
-import { add_board } from "../view/viewport.js";
+import { add_board } from "../view/boardCreator.js";
 
 export let handleClick = () => {
     console.log('button clicked!');
