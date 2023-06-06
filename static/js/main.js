@@ -1,5 +1,5 @@
 import { add_board } from "./view/boardCreator.js";
-import { mainWindow, addBoardButton } from "./view/htmlBuilder.js";
+import { mainWindow, addBoardButton, addSaveButton } from "./view/htmlBuilder.js";
 import { handleClick } from "./controller/boardsManager.js"
 import { createHeader, createMain } from "./view/htmlBuilder.js";
 
