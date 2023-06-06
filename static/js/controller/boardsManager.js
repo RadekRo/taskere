@@ -4,7 +4,7 @@ export function handleClick() {
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/add_board", true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         var response = JSON.parse(xhr.responseText);
         console.log(response.message);
