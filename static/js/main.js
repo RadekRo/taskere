@@ -1,11 +1,8 @@
-import { add_board, show_boards } from "./view/boardCreator.js";
+import { add_board } from "./view/boardCreator.js";
 import { mainWindow, addBoardButton } from "./view/htmlBuilder.js";
 import { handleClick } from "./controller/boardsManager.js"
 import { createHeader, createMain } from "./view/htmlBuilder.js";
 
-//let header = document.getElementById('header');
-
-//add_button()
 createHeader();
 createMain();
 
