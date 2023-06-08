@@ -14,7 +14,7 @@ let logo = document.createElement('div');
     logo.appendChild(logoImg);
 
 export let createNewBoardForm = () => {
-  
+
     boardForm.appendChild(boardNameLabel);
     boardForm.appendChild(boardNameInput);
     boardForm.appendChild(boardNameSubmit);
