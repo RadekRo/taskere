@@ -11,5 +11,4 @@ mainWindow.addEventListener('click', function(event) {
         handleClick();
         mainWindow.insertBefore(add_board('A new board was born'), addBoardButton)
     }
-    // mainWindow.insertBefore(show_boards())
 });
