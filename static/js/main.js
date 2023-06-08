@@ -1,10 +1,10 @@
 import { add_board } from "./view/boardCreator.js";
-import { mainWindow, addBoardButton } from "./view/htmlBuilder.js";
 import { handleClick } from "./controller/boardsManager.js"
-import { createHeader, createMain } from "./view/htmlBuilder.js";
+import { createHeader, createMain, createNewBoardForm, mainWindow, addBoardButton } from "./view/htmlBuilder.js";
 
 createHeader();
 createMain();
+mainWindow.appendChild(createNewBoardForm());
 
 mainWindow.addEventListener('click', function(event) {
     if (event.target.id === 'add_board') {
