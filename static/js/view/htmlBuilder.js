@@ -1,6 +1,7 @@
 import { boardForm, boardNameLabel, boardNameInput, boardNameSubmit } from './boardForm.js';
 
 export let header = document.getElementById('header');
+           header.className = 'd-flex';
 export let mainWindow = document.getElementById('root');
            mainWindow.className = 'd-flex';
 
@@ -27,10 +28,11 @@ export let addBoardButton = document.createElement('button');
            addBoardButton.textContent = '+ Create new board';
 
 export let createHeader = () => {
-    header.appendChild(logo)
+    header.appendChild(logo);
+    header.appendChild(addBoardButton);
 }
 
 export let createMain = () => {
     mainWindow.style.padding = '10px 10px';
-    mainWindow.appendChild(addBoardButton)
+    //mainWindow.appendChild(addBoardButton)
 }
