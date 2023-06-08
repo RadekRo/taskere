@@ -1,13 +1,14 @@
 //import { add_board } from "./view/boardCreator.js";
 import { getAllBoards } from "./controller/board.js"
-import { createHeader, createMain, createNewBoardForm, mainWindow, addBoardButton, header } from "./view/htmlBuilder.js";
+import { createHeader, createMain, createNewBoardForm, mainWindow, titleWindow, createTitle } from "./view/htmlBuilder.js";
 import { boardFormControl } from "./view/boardForm.js";
 
 createHeader();
+createTitle('Public boards', true);
 createMain();
 getAllBoards();
 
-header.addEventListener('click', (event) => {
+titleWindow.addEventListener('click', event => {
     if (event.target.id === 'add_board') {
         mainWindow.appendChild(createNewBoardForm());
         boardFormControl();

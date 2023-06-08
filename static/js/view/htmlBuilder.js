@@ -1,9 +1,11 @@
 import { boardForm, boardNameLabel, boardNameInput, boardNameSubmit } from './boardForm.js';
 
-export let header = document.getElementById('header');
+export const header = document.getElementById('header');
            header.className = 'd-flex justify-content-between';
-export let mainWindow = document.getElementById('root');
-           mainWindow.className = 'd-flex';
+export const titleWindow = document.getElementById('title');
+           titleWindow.className = 'd-flex justify-content-between border-bottom';
+           titleWindow.style.padding = '5px 10px';
+export const mainWindow = document.getElementById('root');
 
 let logoLink = document.createElement('a');
     logoLink.href = '/';
@@ -18,7 +20,15 @@ let logo = document.createElement('div');
     logo.replaceChild(logoLink, logoImg);
     logoLink.appendChild(logoImg);
 
-export let createNewBoardForm = () => {
+const mainTitle = document.createElement('div');
+    mainTitle.className = 'd-flex align-items-center h4 text-info';
+
+const addBoardButton = document.createElement('button');
+      addBoardButton.setAttribute('id', 'add_board');
+      addBoardButton.className = 'btn btn-info text-dark';    
+      addBoardButton.textContent = '+ Create new board';
+
+export const createNewBoardForm = () => {
 
     boardForm.appendChild(boardNameLabel);
     boardForm.appendChild(boardNameInput);
@@ -27,17 +37,30 @@ export let createNewBoardForm = () => {
     return boardForm;
 }
 
-export let addBoardButton = document.createElement('button');
-           addBoardButton.setAttribute('id', 'add_board');
-           addBoardButton.className = 'btn btn-dark text-white';    
-           addBoardButton.textContent = '+ Create new board';
 
 export let createHeader = () => {
     header.appendChild(logo);
-    header.appendChild(addBoardButton);
+}
+
+export let createTitle = (title, button = false) => {
+    let text = document.createElement('span');
+        text.style.margin = '0px 0px 0px 15px';
+        text.textContent = title;
+    
+    let icon = document.createElement("i");
+        icon.className = 'fa-solid fa-people-group fa-beat';
+    
+    mainTitle.appendChild(icon);
+    mainTitle.appendChild(text);
+    mainTitle.style.padding = '5px 5px'; 
+    
+    titleWindow.appendChild(mainTitle);
+    if (button === true) {
+        titleWindow.appendChild(addBoardButton);
+    }
+    
 }
 
 export let createMain = () => {
     mainWindow.style.padding = '10px 10px';
-    //mainWindow.appendChild(addBoardButton)
 }

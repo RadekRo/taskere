@@ -11,7 +11,7 @@ def index():
 def add_board():
     if request.method == "POST":
         title = request.form.get('title')
-        data_manager.add_board_to_database(title)
+        #data_manager.add_board_to_database(title)
         data = {'message': f'board added to the base with title: {title}'}
         return jsonify(data)   
 

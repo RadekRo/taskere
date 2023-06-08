@@ -1,3 +1,6 @@
+import { getAllBoards } from "../controller/board.js";
+import { mainWindow } from "./htmlBuilder.js";
+
 export const boardForm = document.createElement('form');
            boardForm.setAttribute('id', 'new_board');
            boardForm.method = 'POST';
@@ -44,8 +47,8 @@ export const boardFormControl = () => {
           body: formData
         })
         .then(response => response.json())
-        .then(data => {
-          console.log(data);
+        .then(response => {
+          console.log(response);
         })
         .catch(error => {
           console.error(error);
