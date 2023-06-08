@@ -1,7 +1,7 @@
 export let boardForm = document.createElement('form');
-           boardForm.name = 'new_board';
+           boardForm.setAttribute('id', 'new_board');
            boardForm.method = 'POST';
-           boardForm.action = '/?form=submitted';
+           boardForm.action = '/add_board';
 
 export let boardNameLabel = document.createElement('label');
            boardNameLabel.htmlFor = 'board_title';
@@ -14,4 +14,25 @@ export let boardNameInput = document.createElement('input');
 
 export let boardNameSubmit = document.createElement('input');
            boardNameSubmit.type = 'submit';
-           boardNameSubmit.value = 'Create new board';
+           boardNameSubmit.value = 'Save';
+
+export let boardFormControl = () => {
+    document.getElementById("new_board").addEventListener("submit", function(event) {
+        
+        event.preventDefault();
+      
+        const formData = new FormData(this);
+        fetch('/add_board', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      });
+
+}
