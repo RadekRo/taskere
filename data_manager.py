@@ -13,7 +13,7 @@ def add_board_to_database(cursor, title:str):
 def get_boards(cursor):
     query = """
     SELECT *
-    FROM question
+    FROM boards
     """
     cursor.execute(query)
     return cursor.fetchall()

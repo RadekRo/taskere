@@ -23,7 +23,7 @@ const emptyInputAlert = document.createElement('div');
 
 
 export const boardFormControl = () => {
-    document.getElementById("new_board").addEventListener("submit", (event) => {
+    document.getElementById("new_board").addEventListener("submit", function(event) {
         
         event.preventDefault();
       
