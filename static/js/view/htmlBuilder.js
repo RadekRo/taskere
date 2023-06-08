@@ -24,7 +24,7 @@ export let createNewBoardForm = () => {
 export let addBoardButton = document.createElement('button');
            addBoardButton.setAttribute('id', 'add_board');
            addBoardButton.className = 'btn btn-dark text-white';    
-           addBoardButton.textContent = '+ Add new board';
+           addBoardButton.textContent = '+ Create new board';
 
 export let createHeader = () => {
     header.appendChild(logo)
