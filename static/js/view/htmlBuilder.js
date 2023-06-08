@@ -1,9 +1,12 @@
 import { boardForm, boardNameLabel, boardNameInput, boardNameSubmit } from './boardForm.js';
 
 export let header = document.getElementById('header');
-           header.className = 'd-flex';
+           header.className = 'd-flex justify-content-between';
 export let mainWindow = document.getElementById('root');
            mainWindow.className = 'd-flex';
+
+let logoLink = document.createElement('a');
+    logoLink.href = '/';
 
 let logoImg = document.createElement('img');
     logoImg.src = './static/images/logo.jpg';
@@ -12,6 +15,8 @@ let logoImg = document.createElement('img');
 let logo = document.createElement('div');
     logo.className = 'navbar';
     logo.appendChild(logoImg);
+    logo.replaceChild(logoLink, logoImg);
+    logoLink.appendChild(logoImg);
 
 export let createNewBoardForm = () => {
 
