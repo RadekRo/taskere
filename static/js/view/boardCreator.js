@@ -6,6 +6,11 @@ export let add_board = (title) => {
     return newBoard
 }
 
+export let show_board_form = () => {
+    // here will be all the magic with adding board form to the page after clicking a button
+}
+
+
 // export let show_boards = () => {
 
 // }
