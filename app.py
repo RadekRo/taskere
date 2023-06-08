@@ -11,7 +11,7 @@ def index():
 def add_board():
     if request.method == "POST":
         title = request.form.get('title')
-        #data_manager.add_board_to_database(title)
+        data_manager.add_board_to_database(title)
         data = {'message': f'board added to the base with title: {title}'}
         return jsonify(data)   
 
@@ -19,6 +19,10 @@ def add_board():
 def get_boards_list():
     data = data_manager.get_boards()
     return data
+
+@app.route("/boards/<board_id>")
+def show_board(board_id):
+    return render_template('board.html', board_id = board_id)
 
 if __name__ == '__main__':
     app()

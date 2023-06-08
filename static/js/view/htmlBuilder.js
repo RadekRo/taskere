@@ -58,7 +58,7 @@ export let createTitle = (title, button = false) => {
     if (button === true) {
         titleWindow.appendChild(addBoardButton);
     }
-    
+
 }
 
 export let createMain = () => {
