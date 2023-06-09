@@ -49,6 +49,7 @@ export const boardFormControl = () => {
         .then(response => response.json())
         .then(response => {
           console.log(response);
+          console.log('change route');
         })
         .catch(error => {
           console.error(error);

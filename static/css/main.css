@@ -1,3 +1,7 @@
 header {
     background-color: #efebe2;
 }
+
+.custom-column-spacing [class^="col-"] {
+    margin-right: 10px; /* Adjust the margin value as needed */
+  }

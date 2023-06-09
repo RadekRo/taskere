@@ -10,7 +10,7 @@ getAllBoards();
 
 titleWindow.addEventListener('click', event => {
     if (event.target.id === 'add_board') {
-        mainWindow.appendChild(createNewBoardForm());
+       titleWindow.appendChild(createNewBoardForm());
         boardFormControl();
         //mainWindow.insertBefore(add_board('A new board was born'), addBoardButton)
     }
