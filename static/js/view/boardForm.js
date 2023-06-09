@@ -50,6 +50,10 @@ export const boardFormControl = () => {
         .then(response => {
           console.log(response);
           console.log("continue to change root")
+          fetch('/board', {
+            method: 'POST',
+            body: formData
+          })
         })
         .catch(error => {
           console.error(error);

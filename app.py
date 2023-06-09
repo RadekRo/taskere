@@ -22,9 +22,9 @@ def get_boards_list():
     data = data_manager.get_boards()
     return jsonify(data)
 
-@app.route("/boards/<board_id>")
-def show_board(board_id):
-    return render_template('board.html', board_id = board_id)
+@app.route("/board", methods=["POST", "GET"])
+def show_board():
+    return render_template('board.html')
 
 if __name__ == '__main__':
     app()
