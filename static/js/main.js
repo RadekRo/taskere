@@ -1,4 +1,4 @@
-//import { add_board } from "./view/boardCreator.js";
+// import { add_board } from "./view/boardCreator.js";
 import { getAllBoards } from "./controller/board.js"
 import { createHeader, createMain, createNewBoardForm, mainWindow, titleWindow, createTitle } from "./view/htmlBuilder.js";
 import { boardFormControl } from "./view/boardForm.js";

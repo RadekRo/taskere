@@ -1,18 +1,19 @@
-import database, bcrypt
+import database, random
 
-def hash_board_title(board_title):
-    salt = bcrypt.gensalt()
-    hash = bcrypt.hashpw(board_title.encode(encoding="utf-8"), salt)
-    return hash.hex()
+def get_random_number():
+    random_number = random.randint(1, 999999)
+    return random_number
 
 @database.connection_handler
-def add_board_to_database(cursor, title:str):
+def add_board_to_database(cursor, title:str, random_number:int):
     query = """
-    INSERT INTO boards (title)
-    VALUES (%(title)s)
+    INSERT INTO boards (title, random_number)
+    VALUES (%(title)s, %(random_number)s)
     """
-    data = {'title': title}
+    data = {'title': title, 'random_number': random_number}
     cursor.execute(query, data)
+
+
 
 @database.connection_handler
 def get_boards(cursor):
