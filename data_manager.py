@@ -1,4 +1,9 @@
-import database
+import database, bcrypt
+
+def hash_board_title(board_title):
+    salt = bcrypt.gensalt()
+    hash = bcrypt.hashpw(board_title.encode(encoding="utf-8"), salt)
+    return hash.hex()
 
 @database.connection_handler
 def add_board_to_database(cursor, title:str):
