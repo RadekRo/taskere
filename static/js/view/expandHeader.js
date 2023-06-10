@@ -1,7 +1,7 @@
-export function expandHeader(header, options) {
+export function expandHeader(parentElement, options) {
     
     if (options.logo) {
-        header.appendChild(createLogo());
+        parentElement.appendChild(createLogo());
     }
 
 }

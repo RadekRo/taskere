@@ -1,11 +1,11 @@
 // import { add_board } from "./view/boardCreator.js";
 //import { getAllBoards } from "./controller/board.js"
-import { createHeader } from "./view/htmlBuilder.js"; //, createMain, createNewBoardForm, mainWindow, titleWindow, createTitle } from "./view/htmlBuilder.js";
+import { createHeader, createMainWindow } from "./view/htmlBuilder.js"; //, createMain, createNewBoardForm, mainWindow, titleWindow, createTitle } from "./view/htmlBuilder.js";
 //import { boardFormControl } from "./view/boardForm.js";
 
 createHeader();
 // createTitle('Public boards', true);
-// createMain();
+createMainWindow();
 // getAllBoards();
 
 // titleWindow.addEventListener('click', event => {

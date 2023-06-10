@@ -87,10 +87,11 @@ function createTitleWindow() {
                                             'button': '' });
 }
 
-function createMainWindow() {
+export function createMainWindow() {
      const mainWindow = document.createElement('main');
+     mainWindow.style.padding = '10px 10px';
      body.appendChild(mainWindow)
-     expandMainWindow(body, mainWindow, { 'page': 'index' });
+     expandMainWindow(mainWindow, { 'boards': true });
 }
 
 function addEventListeners() {

@@ -1,5 +1,5 @@
-// import { Board, boardContainer } from "../view/boardList.js";
-// import { mainWindow } from "../view/htmlBuilder.js";
+import { Board, boardContainer } from "../view/boardList.js";
+import { mainWindow } from "../view/htmlBuilder.js";
 
 export const getAllBoards = () => {
     var xhr = new XMLHttpRequest();
