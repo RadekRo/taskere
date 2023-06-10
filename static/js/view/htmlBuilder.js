@@ -1,4 +1,9 @@
 import { boardForm, boardNameLabel, boardNameInput, boardNameSubmit } from './boardForm.js';
+import { expandHeader } from './expandHeader.js';
+import { expandTitleWindow } from './expandTitleWindow.js';
+import { expandMainWindow } from './expandMainWindow.js';
+
+
 
 export const header = document.getElementById('header');
            header.className = 'd-flex justify-content-between';
@@ -71,17 +76,17 @@ export let createMain = () => {
 // createHeader()
 //      header = document.createElement('header');
 //      body.appendChild(header)
-//      headerBuilder(body, header, logo = True, signIn = True, Login = True);
+//      expandHeader(body, header, logo = True, signIn = True, Login = True);
 
 // createTitleWindow()
 //      titleWindow = document.createElement('div');
 //      body.appendChild(titleWindow)
-//      titleWindowBuilder(body, titleWindow, title = '', button = '');
+//      expandTitleWindow(body, titleWindow, title = '', button = '');
 
 // createMainWindow()
 //      mainWindow = document.createElement('main');
 //      body.appendChild(mainWindow)
-//      mainWindowBuilder(body, mainWindow, page = index);
+//      expandMainWindow(body, mainWindow, page = index);
 
 // addEventListeners();
 
