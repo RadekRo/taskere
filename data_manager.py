@@ -30,3 +30,14 @@ def get_boards(cursor):
     """
     cursor.execute(query)
     return cursor.fetchall()
+
+@database.connection_handler
+def get_board_id(cursor, random_string):
+    query = """
+    SELECT *
+    FROM boards 
+    WHERE random_number = %(random)s
+    """
+    data = {'random': random_string}
+    cursor.execute(query, data)
+    return cursor.fetchone()

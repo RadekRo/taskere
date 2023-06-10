@@ -54,7 +54,8 @@ export const boardFormControl = () => {
           let root = document.getElementById('board_list');
           let newBoard = document.createElement('span');
           newBoard.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
-          newBoard.innerHTML = response;
+          newBoard.innerHTML = response['title'];
+          newBoard.setAttribute('id', response['id']);
           root.appendChild(newBoard);
         })
         .catch(error => {

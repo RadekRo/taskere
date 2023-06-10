@@ -14,7 +14,8 @@ def add_board():
         random_string = data_manager.get_random_string()
         date_time = data_manager.get_current_date_time()
         # data_manager.add_board_to_database(title, random_string, date_time)
-        data = title
+        # board_id = data_manager.get_board_id(random_string)
+        data = {'title': title, 'id': random_string}
         return jsonify(data)   
 
 @app.route("/get_boards", methods=["POST", "GET"])
