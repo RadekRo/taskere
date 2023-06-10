@@ -1,9 +1,10 @@
-import database, random
+import database, random, string
 from datetime import datetime
 
-def get_random_number():
-    random_number = random.randint(1, 999999999)
-    return random_number
+def get_random_string():
+    characters = string.ascii_letters + string.digits
+    random_string = ''.join(random.choice(characters) for _ in range (8))
+    return random_string
 
 def get_current_date_time():
     date_and_time = str(datetime.now())[0:19]
