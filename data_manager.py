@@ -11,12 +11,12 @@ def get_current_date_time():
     return date_and_time
 
 @database.connection_handler
-def add_board_to_database(cursor, title:str, random_number:int, date_time:str):
+def add_board_to_database(cursor, title:str, random_string:str, date_time:str):
     query = """
-    INSERT INTO boards (title, random_number, addition_date_time)
-    VALUES (%(title)s, %(random_number)s, %(addition_date_time)s)
+    INSERT INTO boards (title, random_string, addition_date_time)
+    VALUES (%(title)s, %(random_string)s, %(addition_date_time)s)
     """
-    data = {'title': title, 'random_number': random_number, 
+    data = {'title': title, 'random_string': random_string, 
             'addition_date_time': date_time}
     cursor.execute(query, data)
 
@@ -36,7 +36,7 @@ def get_board_id(cursor, random_string):
     query = """
     SELECT *
     FROM boards 
-    WHERE random_number = %(random)s
+    WHERE random_string = %(random)s
     """
     data = {'random': random_string}
     cursor.execute(query, data)
