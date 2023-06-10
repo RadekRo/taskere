@@ -49,7 +49,11 @@ export const boardFormControl = () => {
         .then(response => response.json())
         .then(response => {
           console.log(response);
-          console.log('change route');
+          console.log("continue to change root")
+          fetch('/board', {
+            method: 'POST',
+            body: formData
+          })
         })
         .catch(error => {
           console.error(error);
