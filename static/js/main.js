@@ -15,3 +15,9 @@ titleWindow.addEventListener('click', event => {
         //mainWindow.insertBefore(add_board('A new board was born'), addBoardButton)
     }
 });
+
+// htmlBuilder.createHeader();
+// htmlBuilder.createTitleWindow();
+// htmlBuilder.createMainWindow();
+
+// htmlBuilder.AddEventListeners();

@@ -64,3 +64,25 @@ export let createTitle = (title, button = false) => {
 export let createMain = () => {
     mainWindow.style.padding = '10px 10px';
 }
+
+
+// let body = document.getElementById('body');
+
+// createHeader()
+//      header = document.createElement('header');
+//      body.appendChild(header)
+//      headerBuilder(body, header, logo = True, signIn = True, Login = True);
+
+// createTitleWindow()
+//      titleWindow = document.createElement('div');
+//      body.appendChild(titleWindow)
+//      titleWindowBuilder(body, titleWindow, title = '', button = '');
+
+// createMainWindow()
+//      mainWindow = document.createElement('main');
+//      body.appendChild(mainWindow)
+//      mainWindowBuilder(body, mainWindow, page = index);
+
+// addEventListeners();
+
+// index()
