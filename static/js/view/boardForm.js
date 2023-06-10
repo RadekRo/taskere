@@ -48,9 +48,6 @@ export const boardFormControl = () => {
         })
         .then(response => response.json())
         .then(response => {
-          console.log(response);
-          console.log("continue to change root")
-
           let root = document.getElementById('board_list');
           let newBoard = document.createElement('span');
           newBoard.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
