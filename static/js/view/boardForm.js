@@ -1,5 +1,5 @@
-import { getAllBoards } from "../controller/board.js";
-import { createMain, mainWindow } from "./htmlBuilder.js";
+// import { getAllBoards } from "../controller/board.js";
+// import { createMain, mainWindow } from "./htmlBuilder.js";
 
 export const boardForm = document.createElement('form');
            boardForm.setAttribute('id', 'new_board');
