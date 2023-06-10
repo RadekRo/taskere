@@ -1,5 +1,5 @@
 import { getAllBoards } from "../controller/board.js";
-import { mainWindow } from "./htmlBuilder.js";
+import { createMain, mainWindow } from "./htmlBuilder.js";
 
 export const boardForm = document.createElement('form');
            boardForm.setAttribute('id', 'new_board');
@@ -50,10 +50,12 @@ export const boardFormControl = () => {
         .then(response => {
           console.log(response);
           console.log("continue to change root")
-          fetch('/board', {
-            method: 'POST',
-            body: formData
-          })
+
+          let root = document.getElementById('board_list');
+          let newBoard = document.createElement('span');
+          newBoard.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
+          newBoard.innerHTML = response;
+          root.appendChild(newBoard);
         })
         .catch(error => {
           console.error(error);
