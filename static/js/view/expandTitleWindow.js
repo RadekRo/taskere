@@ -16,8 +16,9 @@ export function expandTitleWindow(titleWindow, options) {
     titleWindow.appendChild(textContainer);
 
     let titleImg = document.createElement('img');
-        titleImg.src = './static/images/free-account.jpg';
+        titleImg.src = './static/images/free-account.gif';
         titleImg.alt = 'get you free account sign';
+        titleImg.style.height = '40px';
         titleImg.className = 'rounded';
 
     const titleInfo = document.createElement('div');
