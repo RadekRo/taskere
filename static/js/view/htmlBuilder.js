@@ -6,10 +6,10 @@ import * as eventListeners from '../controller/eventListeners.js';
 
 // ** export const header = document.getElementById('header'); 
 // **           header.className = 'd-flex justify-content-between';
-// export const titleWindow = document.getElementById('title');
-//            titleWindow.className = 'd-flex justify-content-between border-bottom';
-//            titleWindow.style.padding = '5px 10px';
-// export const mainWindow = document.getElementById('root');
+// ** export const titleWindow = document.getElementById('title');
+// **           titleWindow.className = 'd-flex justify-content-between border-bottom';
+// **           titleWindow.style.padding = '5px 10px';
+// ** export const mainWindow = document.getElementById('root');
 
 // ** */ let logoLink = document.createElement('a');
 // ** */     logoLink.href = '/';
@@ -32,13 +32,13 @@ import * as eventListeners from '../controller/eventListeners.js';
 // **      addBoardButton.className = 'btn btn-info text-dark';    
 // **      addBoardButton.textContent = '+ Create new board';
 
-// export const createNewBoardForm = () => {
+// ** export const createNewBoardForm = () => {
 
-//     boardForm.appendChild(boardNameLabel);
-//     boardForm.appendChild(boardNameInput);
-//     boardForm.appendChild(boardNameSubmit);
+// **    boardForm.appendChild(boardNameLabel);
+// **    boardForm.appendChild(boardNameInput);
+// **    boardForm.appendChild(boardNameSubmit);
 
-//     return boardForm;
+// **    return boardForm;
 // }
 
 
@@ -54,9 +54,9 @@ import * as eventListeners from '../controller/eventListeners.js';
 //     let icon = document.createElement("i");
 //         icon.className = 'fa-solid fa-people-group fa-beat';
     
-//     mainTitle.appendChild(icon);
-//     mainTitle.appendChild(text);
-//     mainTitle.style.padding = '5px 5px'; 
+// **    mainTitle.appendChild(icon);
+// **    mainTitle.appendChild(text);
+// **    mainTitle.style.padding = '5px 5px'; 
     
 // **    titleWindow.appendChild(mainTitle);
 // **    if (button === true) {
