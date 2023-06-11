@@ -15,6 +15,17 @@ export function createNewBoardButtonClick() {
 
 }
 
+export function boardCardClick() {
+
+    document.addEventListener('click', event => {
+        const clickedElement = event.target;
+        if (clickedElement.id && /^\d+$/.test(clickedElement.id)) {
+            console.log('Element with numeric ID clicked!');
+        }
+    });    
+
+}
+
 const boardFormControl = () => {
     let boardForm = document.getElementById('new_board');
         boardForm.addEventListener("submit", function(event) {

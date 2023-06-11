@@ -32,4 +32,5 @@ export function createMainWindow() {
 
 export function addEventListeners() {
     eventListeners.createNewBoardButtonClick();
+    eventListeners.boardCardClick();
 }

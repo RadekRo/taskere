@@ -8,6 +8,9 @@ export class Board {
         this.singleBoard = document.createElement('div');
         this.singleBoard.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleBoard.setAttribute('id', boardId);
+        this.singleBoard.addEventListener('click', () => {
+            console.log('You clicked board with ' + boardId + ' id!');
+        });
 
         this.card = document.createElement('div');
         this.card.className = 'card';
