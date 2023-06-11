@@ -16,6 +16,7 @@ export class Board {
         this.card.className = 'card';
         this.card.style.transition = 'background-color 0.3s ease';
         this.card.style.backgroundColor = '#f9f9f9';
+        this.card.style.height = '150px';
 
         this.card.addEventListener('mouseover', () => {
         this.card.style.backgroundColor = '#d9d9f9';
@@ -32,7 +33,6 @@ export class Board {
         
         this.cardBody = document.createElement('div');
         this.cardBody.className = 'card-body board-info';
-        this.cardBody.style.height = '75px';
         this.cardBody.innerHTML = 'created: ' + creation_date;
 
         this.cardBody.appendChild(document.createElement('br'));

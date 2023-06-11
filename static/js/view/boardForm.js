@@ -8,11 +8,12 @@ export function createBoardForm() {
         boardForm.id = 'new_board';
         boardForm.method = 'POST';
         boardForm.action = '/add_board';
+        boardForm.className = 'd-flex justify-content-center';
 
-  const boardNameLabel = document.createElement('label');
-        boardNameLabel.htmlFor = 'board_title';
-        boardNameLabel.textContent = '';
-        boardFormElements.appendChild(boardNameLabel);
+  // const boardNameLabel = document.createElement('label');
+  //       boardNameLabel.htmlFor = 'board_title';
+  //       boardNameLabel.textContent = '';
+  //       boardFormElements.appendChild(boardNameLabel);
 
   const inputGroup = document.createElement('div');
         inputGroup.className = 'input-group px-2';
@@ -26,31 +27,32 @@ export function createBoardForm() {
         boardNameInput.placeholder = 'Enter new board title';
         boardNameInput.className = 'form-control';
         boardNameInput.style.width = '50%';
+
   inputGroup.appendChild(boardNameInput);
 
   const boardNameSubmit = document.createElement('button');
         boardNameSubmit.className = 'btn btn-sm btn-success';
         boardNameSubmit.type = 'submit';
         boardNameSubmit.textContent = 'Save your board';
+
   inputGroup.appendChild(boardNameSubmit);
 
   const boardNameCancel = document.createElement('input');
-        boardNameCancel.className = 'btn btn-sm btn-danger';
         boardNameCancel.type = 'button';
-        boardNameCancel.value = 'Cancel';
-        boardNameCancel.setAttribute('id', 'add_board_cancel');
+        boardNameCancel.value = 'Cancel/Hide';
+        boardNameCancel.id = 'add_board_cancel';
+        boardNameCancel.className = 'btn btn-sm btn-danger';
+
   inputGroup.appendChild(boardNameCancel);
 
   boardFormElements.appendChild(inputGroup);
-
-  boardForm.className = 'd-flex justify-content-center';
   boardForm.appendChild(boardFormElements);
   boardFormContainer.appendChild(boardForm);
 
   return boardFormContainer;
 }
 
-export const emptyInputAlert = document.createElement('div');
-             emptyInputAlert.setAttribute('id', 'empty-input-alert');
-             emptyInputAlert.className = 'bg-warning text=white'
-             emptyInputAlert.innerHTML = 'Empty input field!'
+// export const emptyInputAlert = document.createElement('div');
+//              emptyInputAlert.setAttribute('id', 'empty-input-alert');
+//              emptyInputAlert.className = 'bg-warning text=white'
+//              emptyInputAlert.innerHTML = 'Empty input field!'

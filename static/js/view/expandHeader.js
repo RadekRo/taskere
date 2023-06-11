@@ -4,6 +4,13 @@ export function expandHeader(parentElement, options) {
         parentElement.appendChild(createLogo());
     }
 
+    if (options.login) {
+        console.log('login button allowed!')
+    }
+    
+    if (options.signin) {
+        console.log('signIn button allowed!')
+    }
 }
 
 function createLogo() {

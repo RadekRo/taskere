@@ -1,5 +1,5 @@
 import { createBoardForm } from "../view/boardForm.js";
-import { emptyInputAlert } from "../view/boardForm.js";
+//import { emptyInputAlert } from "../view/boardForm.js";
 import { Board } from "../view/boardsList.js";
 
 export function createNewBoardButtonClick() {
