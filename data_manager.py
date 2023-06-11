@@ -33,10 +33,11 @@ def get_boards(cursor):
 @database.connection_handler
 def get_board_id(cursor, fingerprint):
     query = """
-    SELECT *
+    SELECT id
     FROM boards 
     WHERE fingerprint = %(fingerprint)s
     """
     data = {'fingerprint': fingerprint}
     cursor.execute(query, data)
-    return cursor.fetchone()
+    result = cursor.fetchone()
+    return result['id']

@@ -55,7 +55,7 @@ const boardFormControl = () => {
         .then(response => response.json())
         .then(response => {
           let root = document.getElementById('board_list');
-          console.log(response)
+          console.log('anything', parseInt(response['id']), response)
           const newBoard = new Board(response['id'], response['title'], response['creation_date']);
           newBoard.appendTo(root);
           inputField.value = '';
