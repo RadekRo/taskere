@@ -45,7 +45,7 @@ const getAllBoards = () => {
 }
             
 const showBoards = (boards_list, boardContainer, parentElement) => {
-    boards_list.forEach((board) => {
+    boards_list.forEach(board => {
         const new_board = new Board(board.id, board.title);
         new_board.appendTo(boardContainer);
     });

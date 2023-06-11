@@ -23,13 +23,13 @@ import { expandMainWindow } from './expandMainWindow.js';
 // **    logo.replaceChild(logoLink, logoImg);
 // **    logoLink.appendChild(logoImg);
 
-// const mainTitle = document.createElement('div');
-//     mainTitle.className = 'd-flex align-items-center h4 text-info';
+// ** const mainTitle = document.createElement('div');
+// **    mainTitle.className = 'd-flex align-items-center h4 text-info';
 
-// const addBoardButton = document.createElement('button');
-//       addBoardButton.setAttribute('id', 'add_board');
-//       addBoardButton.className = 'btn btn-info text-dark';    
-//       addBoardButton.textContent = '+ Create new board';
+// ** const addBoardButton = document.createElement('button');
+// **      addBoardButton.setAttribute('id', 'add_board');
+// **      addBoardButton.className = 'btn btn-info text-dark';    
+// **      addBoardButton.textContent = '+ Create new board';
 
 // export const createNewBoardForm = () => {
 
@@ -57,10 +57,10 @@ import { expandMainWindow } from './expandMainWindow.js';
 //     mainTitle.appendChild(text);
 //     mainTitle.style.padding = '5px 5px'; 
     
-//     titleWindow.appendChild(mainTitle);
-//     if (button === true) {
-//         titleWindow.appendChild(addBoardButton);
-//     }
+// **    titleWindow.appendChild(mainTitle);
+// **    if (button === true) {
+// **        titleWindow.appendChild(addBoardButton);
+// **    }
 
 // }
 
@@ -73,23 +73,24 @@ const body = document.querySelector('body');
 
 export function createHeader() {
      const header = document.createElement('header');
-     header.className = 'd-flex justify-content-between';
+           header.className = 'd-flex justify-content-between';
      body.appendChild(header)
      expandHeader(header, { 'logo': true, 
                             'signInButton': true, 
                             'loginButton': true });
 }
 
-function createTitleWindow() {
+export function createTitleWindow(title, button) {
      const titleWindow = document.createElement('div');
+           titleWindow.className = 'border-bottom p-2';
      body.appendChild(titleWindow)
-     expandTitleWindow(body, titleWindow, { 'title': '', 
-                                            'button': '' });
+     expandTitleWindow(titleWindow, { 'title': title, 
+                                      'button': button });
 }
 
 export function createMainWindow() {
      const mainWindow = document.createElement('main');
-     mainWindow.style.padding = '10px 10px';
+           mainWindow.style.padding = '10px';
      body.appendChild(mainWindow)
      expandMainWindow(mainWindow, { 'boards': true });
 }
