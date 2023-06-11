@@ -14,6 +14,7 @@ export function createNewBoardButtonClick() {
                     parentElement.appendChild(newBoardForm);
                 }
             boardFormControl();
+            boardFormCancel();
         }
     })
 
@@ -30,15 +31,15 @@ const boardFormControl = () => {
 
         
         if (inputField.value.trim() === '') {
-            //alert('Please enter a board title.'); 
-            boardForm.append(emptyInputAlert);
-            setTimeout(() => {
-                var div = document.getElementById('empty-input-alert');
-                div.parentNode.removeChild(div);
-              }, 2000);
-            return; 
-          }
-        else {
+            alert('Please enter a board title.'); 
+            // this might be refactored to show the user that his input is empty in other way than alert
+            // boardForm.append(emptyInputAlert);
+            // setTimeout(() => {
+            //     var div = document.getElementById('empty-input-alert');
+            //     div.parentNode.removeChild(div);
+            //   }, 2000);
+            // return; 
+        } else {
 
         const formData = new FormData(this);
         fetch('/add_board', {
@@ -48,7 +49,6 @@ const boardFormControl = () => {
         .then(response => response.json())
         .then(response => {
           let root = document.getElementById('board_list');
-          console.log('anything', parseInt(response['id']), response)
           const newBoard = new Board(response['id'], response['title'], response['creation_date']);
           newBoard.appendTo(root);
           inputField.value = '';
@@ -59,4 +59,14 @@ const boardFormControl = () => {
     }
       });
 
+}
+
+function boardFormCancel() {
+    let boardContainer = document.getElementById('add_new_board_form');
+    let inputField = document.getElementById('board_title');
+    let cancelButton = document.getElementById('add_board_cancel');
+        cancelButton.addEventListener("click", function(event) {
+            boardContainer.remove();
+            inputField.value = '';
+    });
 }
