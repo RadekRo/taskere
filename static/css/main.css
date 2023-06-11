@@ -2,6 +2,6 @@ header {
     background-color: #013080;
 }
 
-.custom-column-spacing [class^="col-"] {
-    margin-right: 10px; /* Adjust the margin value as needed */
-  }
+.text-bold {
+    font-weight: bold;
+}

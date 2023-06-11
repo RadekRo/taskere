@@ -1,26 +1,25 @@
 import database, random, string
 from datetime import datetime
 
-def get_random_string():
+def get_fingerprint(fingerprint_length = 12):
     characters = string.ascii_letters + string.digits
-    random_string = ''.join(random.choice(characters) for _ in range (8))
-    return random_string
+    fingerprint = ''.join(random.choice(characters) for _ in range(fingerprint_length))
+    return fingerprint
 
 def get_current_date_time():
     date_and_time = str(datetime.now())[0:19]
     return date_and_time
 
 @database.connection_handler
-def add_board_to_database(cursor, title:str, random_string:str, date_time:str):
+def add_board_to_database(cursor, creation_date:str, title:str, fingerprint:str):
     query = """
-    INSERT INTO boards (title, random_string, addition_date_time)
-    VALUES (%(title)s, %(random_string)s, %(addition_date_time)s)
+    INSERT INTO boards (creation_date, title, fingerprint)
+    VALUES (%(creation_date)s, %(title)s, %(fingerprint)s)
     """
-    data = {'title': title, 'random_string': random_string, 
-            'addition_date_time': date_time}
+    data = {'creation_date': creation_date, 
+            'title': title, 
+            'fingerprint': fingerprint}
     cursor.execute(query, data)
-
-
 
 @database.connection_handler
 def get_boards(cursor):
@@ -32,12 +31,12 @@ def get_boards(cursor):
     return cursor.fetchall()
 
 @database.connection_handler
-def get_board_id(cursor, random_string):
+def get_board_id(cursor, fingerprint):
     query = """
     SELECT *
     FROM boards 
-    WHERE random_string = %(random)s
+    WHERE fingerprint = %(fingerprint)s
     """
-    data = {'random': random_string}
+    data = {'fingerprint': fingerprint}
     cursor.execute(query, data)
     return cursor.fetchone()

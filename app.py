@@ -11,11 +11,12 @@ def index():
 def add_board():
     if request.method == "POST":
         title = request.form.get('title')
-        random_string = data_manager.get_random_string()
+        # fingerprint is a 12 characters (as default) random string for making boards more unique
+        fingerprint = data_manager.get_fingerprint(12)
         date_time = data_manager.get_current_date_time()
-        data_manager.add_board_to_database(title, random_string, date_time)
-        board_id = data_manager.get_board_id(random_string)
-        data = {'title': title, 'id': board_id}
+        data_manager.add_board_to_database(date_time, title, fingerprint)
+        board_id = data_manager.get_board_id(fingerprint)
+        data = {'id': board_id, 'title': title }
         return jsonify(data)   
 
 @app.route("/get_boards", methods=["POST", "GET"])
