@@ -8,7 +8,7 @@ export function expandTitleWindow(titleWindow, options) {
 
     if (options.button) {
         const createNewBoardButton = document.createElement('button');
-              createNewBoardButton.setAttribute('id', 'add_board');
+              createNewBoardButton.setAttribute('id', 'create_new_board');
               createNewBoardButton.className = 'btn btn-sm btn-info text-dark me-1';    
               createNewBoardButton.textContent = '+ Create new board';
         titleWindow.appendChild(createNewBoardButton);

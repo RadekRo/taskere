@@ -2,6 +2,7 @@
 import { expandHeader } from './expandHeader.js';
 import { expandTitleWindow } from './expandTitleWindow.js';
 import { expandMainWindow } from './expandMainWindow.js';
+import * as eventListeners from '../controller/eventListeners.js';
 
 // ** export const header = document.getElementById('header'); 
 // **           header.className = 'd-flex justify-content-between';
@@ -90,11 +91,12 @@ export function createTitleWindow(title, button) {
 
 export function createMainWindow() {
      const mainWindow = document.createElement('main');
+           mainWindow.setAttribute('id', 'root');
            mainWindow.style.padding = '10px';
      body.appendChild(mainWindow)
      expandMainWindow(mainWindow, { 'boards': true });
 }
 
 export function addEventListeners() {
-    document.addEventListener('click', () => { console.log('click')})
+    eventListeners.createNewBoardButtonClick();
 }
