@@ -8,7 +8,11 @@ export function createNewBoardButtonClick() {
         if (event.target.id === 'create_new_board') {
             let newBoardForm = createBoardForm();
             let parentElement = document.getElementById('root');
-                parentElement.appendChild(newBoardForm);
+                if (parentElement.firstChild) {
+                    parentElement.insertBefore(newBoardForm, parentElement.firstChild);
+                } else {
+                    parentElement.appendChild(newBoardForm);
+                }
             boardFormControl();
         }
     })
