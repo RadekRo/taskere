@@ -7,7 +7,7 @@ def get_fingerprint(fingerprint_length = 12):
     return fingerprint
 
 def get_current_date_time():
-    date_and_time = str(datetime.now())[0:19]
+    date_and_time = str(datetime.now())[0:16]
     return date_and_time
 
 @database.connection_handler

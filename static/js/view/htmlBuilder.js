@@ -3,9 +3,6 @@ import { expandTitleWindow } from './expandTitleWindow.js';
 import { expandMainWindow } from './expandMainWindow.js';
 import * as eventListeners from '../controller/eventListeners.js';
 
-//     let icon = document.createElement("i");
-//         icon.className = 'fa-solid fa-people-group fa-beat';
-
 const body = document.querySelector('body');
 
 export function createHeader() {

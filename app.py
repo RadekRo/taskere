@@ -16,7 +16,7 @@ def add_board():
         date_time = data_manager.get_current_date_time()
         data_manager.add_board_to_database(date_time, title, fingerprint)
         board_id = data_manager.get_board_id(fingerprint)
-        data = {'id': board_id, 'title': title }
+        data = {'id': board_id, 'title': title, 'creation_date': date_time }
         return jsonify(data)   
 
 @app.route("/get_boards", methods=["POST", "GET"])
