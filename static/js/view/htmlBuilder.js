@@ -45,10 +45,10 @@ import { expandMainWindow } from './expandMainWindow.js';
 // **    header.appendChild(logo);
 // **}
 
-// export let createTitle = (title, button = false) => {
-//     let text = document.createElement('span');
-//         text.style.margin = '0px 0px 0px 15px';
-//         text.textContent = title;
+// ** export let createTitle = (title, button = false) => {
+// **    let text = document.createElement('span');
+// **        text.style.margin = '0px 0px 0px 15px';
+// **        text.textContent = title;
     
 //     let icon = document.createElement("i");
 //         icon.className = 'fa-solid fa-people-group fa-beat';
@@ -82,7 +82,7 @@ export function createHeader() {
 
 export function createTitleWindow(title, button) {
      const titleWindow = document.createElement('div');
-           titleWindow.className = 'border-bottom p-2';
+           titleWindow.className = 'd-flex justify-content-between border-bottom p-2';
      body.appendChild(titleWindow)
      expandTitleWindow(titleWindow, { 'title': title, 
                                       'button': button });
@@ -95,8 +95,6 @@ export function createMainWindow() {
      expandMainWindow(mainWindow, { 'boards': true });
 }
 
-function addEventListeners() {
-    console.log('event listeners')
+export function addEventListeners() {
+    document.addEventListener('click', () => { console.log('click')})
 }
-
-// index()
