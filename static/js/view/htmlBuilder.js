@@ -41,9 +41,9 @@ import { expandMainWindow } from './expandMainWindow.js';
 // }
 
 
-// export let createHeader = () => {
-//     header.appendChild(logo);
-// }
+// **export let createHeader = () => {
+// **    header.appendChild(logo);
+// **}
 
 // export let createTitle = (title, button = false) => {
 //     let text = document.createElement('span');
@@ -64,9 +64,9 @@ import { expandMainWindow } from './expandMainWindow.js';
 
 // }
 
-// export let createMain = () => {
-//     mainWindow.style.padding = '10px 10px';
-// }
+// **export let createMain = () => {
+// **    mainWindow.style.padding = '10px 10px';
+// **}
 
 
 const body = document.querySelector('body');

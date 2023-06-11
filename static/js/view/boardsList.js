@@ -7,7 +7,7 @@ class Board {
         this.board = document.createElement('span');
         this.board.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
         this.board.textContent = textContent;
-        this.board.style.height = '100px';
+        this.board.style.height = '75px'
         //this.board.style.margin = '10px 0px 0px 15px';
         this.board.setAttribute('id', boardId)
     }
