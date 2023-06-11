@@ -1,5 +1,6 @@
 import { createBoardForm } from "../view/boardForm.js";
 import { emptyInputAlert } from "../view/boardForm.js";
+import { Board } from "../view/boardsList.js";
 
 export function createNewBoardButtonClick() {
     
@@ -43,12 +44,9 @@ const boardFormControl = () => {
         .then(response => response.json())
         .then(response => {
           let root = document.getElementById('board_list');
-          let newBoard = document.createElement('span');
-          newBoard.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
-          newBoard.innerHTML = response['title'];
-          newBoard.setAttribute('id', response['id']);
-          newBoard.style.height = '100px';
-          root.appendChild(newBoard);
+          const newBoard = new Board(response['id'], response['title']);
+          newBoard.appendTo(root);
+          inputField.value = '';
         })
         .catch(error => {
           console.error(error);

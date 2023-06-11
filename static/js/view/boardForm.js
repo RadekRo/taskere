@@ -1,6 +1,3 @@
-// import { getAllBoards } from "../controller/board.js";
-// import { createMain, mainWindow } from "./htmlBuilder.js";
-
 export function createBoardForm() {
 
   const boardFormContainer = document.createElement('div');
