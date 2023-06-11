@@ -4,12 +4,14 @@ export function expandHeader(parentElement, options) {
         parentElement.appendChild(createLogo());
     }
 
-    if (options.login) {
-        console.log('login button allowed!')
+    if (options.loginButton) {
+        console.log('login button allowed!');
+        createLogInButton();
     }
     
-    if (options.signin) {
-        console.log('signIn button allowed!')
+    if (options.signInButton) {
+        console.log('signIn button allowed!');
+        createSignInButton();
     }
 }
 
@@ -33,3 +35,10 @@ function createLogo() {
 
 }
 
+function createLogInButton () {
+    console.log('Login button function created!')
+}
+
+function createSignInButton () {
+    console.log('SignIn button function created!')
+}
