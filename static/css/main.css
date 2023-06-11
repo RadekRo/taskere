@@ -11,6 +11,11 @@ header {
     color: #777777;
 }
 
+.title-text {
+    font-size: 0.90em;
+    color: grey;
+}
+
 .board-info {
     font-size: 0.8em;
     color: #777777;

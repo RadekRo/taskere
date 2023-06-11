@@ -15,9 +15,14 @@ export function expandTitleWindow(titleWindow, options) {
     textContainer.appendChild(wrapper);
     titleWindow.appendChild(textContainer);
 
+    let titleImg = document.createElement('img');
+        titleImg.src = './static/images/free-account.jpg';
+        titleImg.alt = 'get you free account sign';
+        titleImg.className = 'rounded';
+
     const titleInfo = document.createElement('div');
-          titleInfo.className = 'd-flex align-items-center text-comment';
-          titleInfo.textContent = 'If you want to operate on your own, private boards - please Sign in/Login.'
+          titleInfo.className = 'd-flex align-items-center';
+          titleInfo.appendChild(titleImg);
 
     titleWindow.appendChild(titleInfo);
 
