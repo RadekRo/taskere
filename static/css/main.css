@@ -5,3 +5,8 @@ header {
 .text-bold {
     font-weight: bold;
 }
+
+.text-comment {
+    font-size: 0.85em;
+    color: #777777;
+}

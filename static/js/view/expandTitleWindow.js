@@ -15,6 +15,12 @@ export function expandTitleWindow(titleWindow, options) {
     textContainer.appendChild(wrapper);
     titleWindow.appendChild(textContainer);
 
+    const titleInfo = document.createElement('div');
+          titleInfo.className = 'd-flex align-items-center text-comment';
+          titleInfo.textContent = 'If you want to operate on your own, private boards - please Sign in/Login.'
+
+    titleWindow.appendChild(titleInfo);
+
     if (options.button) {
         const createNewBoardButton = document.createElement('button');
               createNewBoardButton.setAttribute('id', 'create_new_board');
