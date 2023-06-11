@@ -3,16 +3,20 @@ const boardContainer = document.createElement('div');
       boardContainer.className = 'row px-3';
 
 export class Board {
-    constructor(boardId, textContent) {
-        this.board = document.createElement('span');
-        this.board.className = 'card col-lg-2 col-md-4 col-sm-6 col-xs-12';
+    constructor(boardId, textContent, border = false) {
+        this.singleBoard = document.createElement('div');
+        this.singleBoard.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
+        
+        this.board = document.createElement('div');
+        this.board.className = 'card p-1';
         this.board.textContent = textContent;
         this.board.style.height = '75px';
-        //this.board.style.margin = '10px 0px 0px 15px';
         this.board.setAttribute('id', boardId);
+
+        this.singleBoard.appendChild(this.board);
     }
     appendTo(parentElement) {
-        parentElement.appendChild(this.board);
+        parentElement.appendChild(this.singleBoard);
     }
 }
 
