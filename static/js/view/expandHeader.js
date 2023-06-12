@@ -36,9 +36,22 @@ function createLogo() {
 }
 
 function createLogInButton () {
+    const   logButton = document.createElement('button');
+            logButton.textContent = 'Login';
+            logButton.className = 'btn btn-sm btn-warning text-dark me-1 text-bold'
+
+    const currentDiv = document.getElementById("div");
+    document.body.insertBefore(logButton, currentDiv);
     console.log('Login button function created!')
 }
 
-function createSignInButton () {
+function createSignInButton () { 
+    const   signButton = document.createElement('button');
+            signButton.textContent = 'Sign in';
+            signButton.className = 'btn btn-sm btn-info text-dark me-1 text-bold'
+
+    const currentDiv = document.getElementById("div");
+    document.body.insertBefore(signButton, currentDiv);
+
     console.log('SignIn button function created!')
 }
