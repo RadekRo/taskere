@@ -16,9 +16,11 @@ export function createHeader() {
 
 export function createTitleWindow(title, button) {
      const titleWindow = document.createElement('div');
+           titleWindow.id = 'title_window';
            titleWindow.className = 'd-flex justify-content-between border-bottom p-2';
      body.appendChild(titleWindow)
-     expandTitleWindow(titleWindow, { 'title': title, 
+     expandTitleWindow(titleWindow, { 'icon': true,
+                                      'title': title, 
                                       'button': button });
 }
 

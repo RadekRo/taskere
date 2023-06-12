@@ -10,6 +10,8 @@ export class Board {
         this.singleBoard.setAttribute('id', boardId);
         this.singleBoard.addEventListener('click', () => {
             console.log('You clicked board with ' + boardId + ' id!');
+            document.getElementById('title_window').innerHTML = '';
+            document.createElement('')
         });
 
         this.card = document.createElement('div');

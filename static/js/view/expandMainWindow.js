@@ -1,4 +1,4 @@
-import { showBoardsList } from "./boardsList.js";
+import { showBoardsList } from "./boardList.js";
 
 export function expandMainWindow(parentElement, options) {
 
