@@ -26,7 +26,7 @@ def get_boards(cursor):
     query = """
     SELECT *
     FROM boards
-    ORDER BY id
+    ORDER BY id DESC
     """
     cursor.execute(query)
     return cursor.fetchall()
