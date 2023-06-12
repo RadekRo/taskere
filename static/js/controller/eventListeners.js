@@ -1,6 +1,8 @@
 import { createBoardForm } from "../view/boardForm.js";
 //import { emptyInputAlert } from "../view/boardForm.js";
 import { Board } from "../view/boardList.js";
+import { show_login } from "../view/login.js";
+import { show_signin } from "../view/signin.js";
 
 export function createNewBoardButtonClick() {
     
@@ -19,6 +21,17 @@ export function createNewBoardButtonClick() {
     })
 
 }
+
+document.addEventListener('click', event => {
+    if (event.target.id === 'login_button') {
+        console.log('login button clicked');
+        show_login();
+    }
+    // if (event.target.id === 'signin_button') {
+    //     console.log('signin button clicked');
+    //     show_signin();
+    // }
+})
 
 const boardFormSubmit = () => {
     let boardForm = document.getElementById('new_board');
