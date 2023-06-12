@@ -44,6 +44,9 @@ export class Board {
     appendTo(parentElement) {
         parentElement.appendChild(this.singleBoard);
     }
+    getNode() {
+        return this.singleBoard;
+    }
 }
 
 export function showBoardsList(parentElement) {

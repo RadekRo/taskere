@@ -50,7 +50,8 @@ const boardFormControl = () => {
         .then(response => {
           let root = document.getElementById('board_list');
           const newBoard = new Board(response['id'], response['title'], response['creation_date']);
-          newBoard.appendTo(root);
+          const newBoardNode = newBoard.getNode();
+          root.insertBefore(newBoardNode, root.firstChild)
           inputField.value = '';
         })
         .catch(error => {
