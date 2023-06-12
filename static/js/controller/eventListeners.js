@@ -13,14 +13,14 @@ export function createNewBoardButtonClick() {
                 } else {
                     parentElement.appendChild(newBoardForm);
                 }
-            boardFormControl();
+            boardFormSubmit();
             boardFormCancel();
         }
     })
 
 }
 
-const boardFormControl = () => {
+const boardFormSubmit = () => {
     let boardForm = document.getElementById('new_board');
         boardForm.addEventListener("submit", function(event) {
         
