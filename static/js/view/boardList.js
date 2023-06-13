@@ -1,3 +1,5 @@
+import { expandTitleWindow } from "./expandTitleWindow.js";
+
 const boardContainer = document.createElement('div');
       boardContainer.setAttribute('id', 'board_list');
       boardContainer.className = 'row px-3';
@@ -10,8 +12,11 @@ export class Board {
         this.singleBoard.setAttribute('id', boardId);
         this.singleBoard.addEventListener('click', () => {
             console.log('You clicked board with ' + boardId + ' id!');
-            document.getElementById('title_window').innerHTML = '';
-            document.createElement('')
+            let titleWindow = document.getElementById('title_window');
+            titleWindow.innerHTML = '';
+            expandTitleWindow(titleWindow, {'title': textContent})
+            let mainWindow = document.getElementById('root');
+            mainWindow.innerHTML = '';
         });
 
         this.card = document.createElement('div');
