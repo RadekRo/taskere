@@ -27,10 +27,10 @@ document.addEventListener('click', event => {
         console.log('login button clicked');
         show_login();
     }
-    // if (event.target.id === 'signin_button') {
-    //     console.log('signin button clicked');
-    //     show_signin();
-    // }
+    if (event.target.id === 'signin_button') {
+        console.log('signin button clicked');
+        show_signin();
+    }
 })
 
 const boardFormSubmit = () => {

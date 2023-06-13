@@ -7,4 +7,4 @@ createTitleWindow('Public boards', true);
 createMainWindow();
 addEventListeners();
 // show_login();
-show_signin();
+// show_signin();
