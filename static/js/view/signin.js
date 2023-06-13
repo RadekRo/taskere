@@ -31,7 +31,7 @@ signinWindow.innerHTML = `
         <div class="md-form mb-4">
         <i class="fas fa-lock prefix grey-text"></i>
         <input type="password" id="defaultForm-pass retype" class="form-control validate">
-        <label data-error="wrong" data-success="right" for="defaultForm-pass">re-type your password</label>
+        <label data-error="wrong" data-success="right" for="defaultForm-pass">Re-type your password</label>
       </div>
 
       </div>
@@ -40,11 +40,6 @@ signinWindow.innerHTML = `
       </div>
     </div>
   </div>
-</div>
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-    Modal Login Form</a>
 </div>
 `;
      
