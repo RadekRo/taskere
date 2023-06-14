@@ -24,11 +24,9 @@ export function createNewBoardButtonClick() {
 
 document.addEventListener('click', event => {
     if (event.target.id === 'login_button') {
-        console.log('login button clicked');
         show_login();
     }
     if (event.target.id === 'signin_button') {
-        console.log('signin button clicked');
         show_signin();
     }
 })
