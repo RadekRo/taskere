@@ -1,5 +1,5 @@
 import { expandTitleWindow } from "./expandTitleWindow.js";
-import { showTasksList } from "./TasksList.js";
+import { showTaskList } from "./TaskList.js";
 
 const boardContainer = document.createElement('div');
       boardContainer.setAttribute('id', 'board_list');
@@ -18,7 +18,7 @@ export class Board {
             expandTitleWindow(titleWindow, {'title': textContent})
             let mainWindow = document.getElementById('root');
             mainWindow.innerHTML = '';
-            showTasksList(mainWindow)
+            showTaskList(mainWindow, boardId);
 
         });
 

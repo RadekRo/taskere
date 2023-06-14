@@ -24,6 +24,12 @@ def get_boards_list():
     data = data_manager.get_boards()
     return jsonify(data)
 
+@app.route("/get_tasks/<boardId>", methods=["POST", "GET"])
+def get_tasks(boardId):
+    #data = data_manager.get_tasks(boardId)
+    data = boardId
+    return jsonify(data)
+
 @app.route("/board", methods=["POST", "GET"])
 def show_board():
     return render_template('board.html')
