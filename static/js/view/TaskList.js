@@ -2,11 +2,11 @@ const taskContainer = document.createElement('div');
       taskContainer.setAttribute('id', 'task_list');
       taskContainer.className = 'row px-3';
 
-export class Board {
-    constructor(boardId, textContent, creation_date) {
+export class Task {
+    constructor(title) {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
-        this.singleTask.textContent = 'single task'
+        this.singleTask.textContent = title;
     //     this.singleTask.setAttribute('id', boardId);
     //     this.singleTask.addEventListener('click', () => {
     //         console.log('You clicked task with ' + taskId + ' id!');
@@ -47,14 +47,13 @@ export class Board {
     //     this.card.appendChild(this.cardBody);
     
     //     this.singleBoard.appendChild(this.card);
-    // }
-    // appendTo(parentElement) {
-    //     parentElement.appendChild(this.singleBoard);
-    // }
-    // getNode() {
-    //     return this.singleBoard;
-    // }
-
+    }
+    appendTo(parentElement) {
+        parentElement.appendChild(this.singleTask);
+    }
+    
+    getNode() {
+        return this.singleTask;
     }
 }
 
@@ -63,13 +62,13 @@ export class Board {
 
 
 export function showTaskList(parentElement, boardId) {
-
-
-
-
-    //let taskList = document.createElement('div');
-    //taskList.textContent = 'TUTAJ BĘDZIE LISTA TASKÓW dla tego BOARDA!';
-    getAllTasks(boardId).then(response => {console.log(response)});
+    getAllTasks(boardId)
+        .then(taskList => {
+            showTasks(taskList, taskContainer, parentElement);
+        })
+      .catch(error => {
+        console.error(error);
+      });
 }
 
 const getAllTasks = (boardId) => {
@@ -90,10 +89,10 @@ const getAllTasks = (boardId) => {
     });
 }
             
-// const showBoards = (boards_list, boardContainer, parentElement) => {
-//     boards_list.forEach(board => {
-//         const new_board = new Board(board.id, board.title, board.creation_date);
-//         new_board.appendTo(boardContainer);
-//     });
-//     parentElement.appendChild(boardContainer);
-// };
+const showTasks = (task_list, taskContainer, parentElement) => {
+    task_list.forEach(task => {
+        const new_task = new Task(task['title']);
+        new_task.appendTo(taskContainer);
+    });
+    parentElement.appendChild(taskContainer);
+};

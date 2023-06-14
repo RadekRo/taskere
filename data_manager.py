@@ -44,16 +44,15 @@ def get_board_id(cursor, fingerprint):
     return result['id']
 
 @database.connection_handler
-def get_tasks(cursor, boardId):
+def get_tasks(cursor, board_id):
     query = """
-    SELECT id
-    FROM boards 
-    WHERE fingerprint = %(fingerprint)s
+    SELECT *
+    FROM tasks 
+    WHERE board_id = %(board_id)s
     """
-    data = {'fingerprint': fingerprint}
+    data = {'board_id': board_id}
     cursor.execute(query, data)
-    result = cursor.fetchone()
-    return result['id']
+    return cursor.fetchall()
 
 
 def check_password_repeat(password, password_repeat):
