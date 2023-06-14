@@ -2,6 +2,11 @@ const taskContainer = document.createElement('div');
       taskContainer.setAttribute('id', 'task_list');
       taskContainer.className = 'row px-3';
 
+const addTaskButton = document.createElement('button');
+      addTaskButton.className = 'btn btn-sm btn-success col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
+      addTaskButton.textContent = 'DODEJ!';
+      taskContainer.appendChild(addTaskButton);
+
 export class Task {
     constructor(title) {
         this.singleTask = document.createElement('div');
@@ -49,9 +54,9 @@ export class Task {
     //     this.singleBoard.appendChild(this.card);
     }
     appendTo(parentElement) {
-        parentElement.appendChild(this.singleTask);
+        parentElement.insertBefore(this.singleTask, parentElement.firstChild);
     }
-    
+
     getNode() {
         return this.singleTask;
     }
