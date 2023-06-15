@@ -3,6 +3,7 @@ import { createBoardForm } from "../view/boardForm.js";
 import { Board } from "../view/boardList.js";
 import { show_login } from "../view/login.js";
 import { show_signin } from "../view/signin.js";
+import { addTaskElement } from "../view/TaskList.js";
 
 export function createNewBoardButtonClick() {
     
@@ -28,6 +29,18 @@ document.addEventListener('click', event => {
     }
     if (event.target.id === 'signin_button') {
         show_signin();
+    }
+    if (event.target.id === 'add_task') {
+        addTaskElement();
+    }
+    if (event.target.id === 'cancel_task') {
+        let parentElement = document.getElementById('add_task_button');
+        parentElement.innerHTML = '';
+        const addTaskButton = document.createElement('button');
+              addTaskButton.className = 'btn btn-sm btn-success';
+              addTaskButton.id = 'add_task';
+              addTaskButton.textContent = 'DODEJ!';
+        parentElement.appendChild(addTaskButton);
     }
 })
 

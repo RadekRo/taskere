@@ -12,7 +12,6 @@ export class Board {
         this.singleBoard.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleBoard.setAttribute('id', boardId);
         this.singleBoard.addEventListener('click', () => {
-            console.log('You clicked board with ' + boardId + ' id!');
             let titleWindow = document.getElementById('title_window');
             titleWindow.innerHTML = '';
             expandTitleWindow(titleWindow, {'title': textContent})

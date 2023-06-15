@@ -2,10 +2,37 @@ const taskContainer = document.createElement('div');
       taskContainer.setAttribute('id', 'task_list');
       taskContainer.className = 'row px-3';
 
+const addTaskButtonContainer = document.createElement('div');
+      addTaskButtonContainer.id = 'add_task_button'
+      addTaskButtonContainer.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1 bg-info';
+
 const addTaskButton = document.createElement('button');
-      addTaskButton.className = 'btn btn-sm btn-success col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
+      addTaskButton.className = 'btn btn-sm btn-success';
+      addTaskButton.id = 'add_task';
       addTaskButton.textContent = 'DODEJ!';
-      taskContainer.appendChild(addTaskButton);
+      addTaskButtonContainer.appendChild(addTaskButton);
+      taskContainer.appendChild(addTaskButtonContainer);
+
+export function addTaskElement () {
+        addTaskButtonContainer.innerHTML = '';
+        const test = document.createElement('div');
+        const inputTitle = document.createElement('input');
+              inputTitle.name = 'title';
+              inputTitle.className = 'form-control';
+              inputTitle.setAttribute('placeholder', 'Enter task title');
+        const saveTaskButton = document.createElement('button');
+              saveTaskButton.className = 'btn btn-sm bg-success text-white';
+              saveTaskButton.id = 'save_task';
+              saveTaskButton.textContent = 'Save'; 
+        const cancelTaskButton = document.createElement('button');
+              cancelTaskButton.className = 'btn btn-sm bg-danger text-white';
+              cancelTaskButton.id = 'cancel_task';
+              cancelTaskButton.textContent = 'Cancel';
+       test.appendChild(inputTitle); 
+       addTaskButtonContainer.appendChild(test);
+       addTaskButtonContainer.appendChild(saveTaskButton);
+       addTaskButtonContainer.appendChild(cancelTaskButton);
+}
 
 export class Task {
     constructor(title) {
