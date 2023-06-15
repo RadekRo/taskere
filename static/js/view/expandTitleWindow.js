@@ -27,6 +27,10 @@ export function expandTitleWindow(titleWindow, options) {
 
     titleWindow.appendChild(titleInfo);
 
+    if (options.id) {
+      titleWindow.setAttribute('data-board-id', options.id)
+    }
+
     if (options.button) {
         const createNewBoardButton = document.createElement('button');
               createNewBoardButton.setAttribute('id', 'create_new_board');

@@ -29,9 +29,12 @@ def get_tasks(boardId):
     data = data_manager.get_tasks(boardId)
     return jsonify(data)
 
-@app.route("/board", methods=["POST", "GET"])
-def show_board():
-    return render_template('board.html')
+@app.route("/add_task", methods=["POST", "GET"])
+def add_task():
+    if request.method == "POST":
+        title = request.form.get('title')
+        board_id = request.form.get('board_id')
+        return jsonify(title, board_id)
 
 if __name__ == '__main__':
     app()

@@ -13,32 +13,13 @@ const addTaskButton = document.createElement('button');
       addTaskButtonContainer.appendChild(addTaskButton);
       taskContainer.appendChild(addTaskButtonContainer);
 
-export function addTaskElement () {
-        addTaskButtonContainer.innerHTML = '';
-        const test = document.createElement('div');
-        const inputTitle = document.createElement('input');
-              inputTitle.name = 'title';
-              inputTitle.className = 'form-control';
-              inputTitle.setAttribute('placeholder', 'Enter task title');
-        const saveTaskButton = document.createElement('button');
-              saveTaskButton.className = 'btn btn-sm bg-success text-white';
-              saveTaskButton.id = 'save_task';
-              saveTaskButton.textContent = 'Save'; 
-        const cancelTaskButton = document.createElement('button');
-              cancelTaskButton.className = 'btn btn-sm bg-danger text-white';
-              cancelTaskButton.id = 'cancel_task';
-              cancelTaskButton.textContent = 'Cancel';
-       test.appendChild(inputTitle); 
-       addTaskButtonContainer.appendChild(test);
-       addTaskButtonContainer.appendChild(saveTaskButton);
-       addTaskButtonContainer.appendChild(cancelTaskButton);
-}
-
 export class Task {
-    constructor(title) {
+    constructor(boardId, title) {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleTask.textContent = title;
+        this.singleTask.id = 'task';
+        this.singleTask.setAttribute('data-board-id', boardId);
     //     this.singleTask.setAttribute('id', boardId);
     //     this.singleTask.addEventListener('click', () => {
     //         console.log('You clicked task with ' + taskId + ' id!');
@@ -89,10 +70,6 @@ export class Task {
     }
 }
 
-
-
-
-
 export function showTaskList(parentElement, boardId) {
     getAllTasks(boardId)
         .then(taskList => {
@@ -123,7 +100,7 @@ const getAllTasks = (boardId) => {
             
 const showTasks = (task_list, taskContainer, parentElement) => {
     task_list.forEach(task => {
-        const new_task = new Task(task['title']);
+        const new_task = new Task(task['board_id'], task['title']);
         new_task.appendTo(taskContainer);
     });
     parentElement.appendChild(taskContainer);

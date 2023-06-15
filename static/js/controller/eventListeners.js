@@ -3,7 +3,8 @@ import { createBoardForm } from "../view/boardForm.js";
 import { Board } from "../view/boardList.js";
 import { show_login } from "../view/login.js";
 import { show_signin } from "../view/signin.js";
-import { addTaskElement } from "../view/TaskList.js";
+import { createTaskListForm } from "../view/taskForm.js";
+//import { addTaskElement } from "../view/taskList.js";
 
 export function createNewBoardButtonClick() {
     
@@ -31,8 +32,11 @@ document.addEventListener('click', event => {
         show_signin();
     }
     if (event.target.id === 'add_task') {
-        addTaskElement();
+        const taskFormContainer = document.getElementById('add_task_button');
+        createTaskListForm(taskFormContainer);
+        taskFormSubmit();
     }
+    
     if (event.target.id === 'cancel_task') {
         let parentElement = document.getElementById('add_task_button');
         parentElement.innerHTML = '';
@@ -43,6 +47,32 @@ document.addEventListener('click', event => {
         parentElement.appendChild(addTaskButton);
     }
 })
+
+const taskFormSubmit = () => {
+    const taskForm = document.getElementById('add_task')
+          taskForm.addEventListener('submit', function(event) {  
+            event.preventDefault(); 
+   
+            const formData = new FormData(this);
+            fetch('/add_task', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+            // let root = document.getElementById('board_list');
+            // const newBoard = new Board(response['id'], response['title'], response['creation_date']);
+            // const newBoardNode = newBoard.getNode();
+            // root.insertBefore(newBoardNode, root.firstChild)
+            // inputField.value = '';
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        });
+}
+
 
 const boardFormSubmit = () => {
     let boardForm = document.getElementById('new_board');
@@ -64,8 +94,9 @@ const boardFormSubmit = () => {
             //   }, 2000);
             // return; 
         } else {
-
+        console.log(this)
         const formData = new FormData(this);
+        console.log(formData);
         fetch('/add_board', {
           method: 'POST',
           body: formData
