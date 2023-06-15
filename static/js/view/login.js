@@ -1,5 +1,4 @@
 export const show_login = () => {
-    console.log('i wyjebałem');
     const bodyElement = document.querySelector('body');
     
     const overlayDiv = document.createElement('div');
@@ -18,16 +17,18 @@ export const show_login = () => {
           loginWindow.style.zIndex = '9999';
           loginWindow.className = 'shadow p-3 mb-5 bg-white rounded';
 
+    const closeButton = document.createElement('button');
+          closeButton.className = 'btn btn-sm btn-danger text-white';
+          closeButton.textContent = 'Close';
 
-    
     bodyElement.append(overlayDiv);
+    loginWindow.appendChild(closeButton);
     overlayDiv.append(loginWindow);
-    overlayDiv.addEventListener('click', event => {
+
+    closeButton.addEventListener('click', event => {
         overlayDiv.remove();
         loginWindow.remove();
-    })
-    loginWindow.addEventListener('click', event => {
-        console.log('clicked login window')
+        console.log('click')
     })
 
 }
