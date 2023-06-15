@@ -22,6 +22,17 @@ def add_board_to_database(cursor, creation_date:str, title:str, fingerprint:str)
     cursor.execute(query, data)
 
 @database.connection_handler
+def add_task_to_database(cursor, board_id:int, title:str, fingerprint:str):
+    query = """
+    INSERT INTO tasks (board_id, title, fingerprint)
+    VALUES (%(board_id)s, %(title)s, %(fingerprint)s)
+    """
+    data = {'board_id': board_id, 
+            'title': title, 
+            'fingerprint': fingerprint}
+    cursor.execute(query, data)
+
+@database.connection_handler
 def get_boards(cursor):
     query = """
     SELECT *
@@ -54,6 +65,17 @@ def get_tasks(cursor, board_id):
     cursor.execute(query, data)
     return cursor.fetchall()
 
+@database.connection_handler
+def get_task_id(cursor, fingerprint):
+    query = """
+    SELECT id
+    FROM tasks 
+    WHERE fingerprint = %(fingerprint)s
+    """
+    data = {'fingerprint': fingerprint}
+    cursor.execute(query, data)
+    result = cursor.fetchone()
+    return result['id']
 
 def check_password_repeat(password, password_repeat):
     return password == password_repeat

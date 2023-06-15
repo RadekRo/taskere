@@ -34,7 +34,12 @@ def add_task():
     if request.method == "POST":
         title = request.form.get('title')
         board_id = request.form.get('board_id')
-        return jsonify(title, board_id)
+        # fingerprint is a 12 characters (as default) random string for making boards more unique
+        fingerprint = data_manager.get_fingerprint(12)
+        data_manager.add_task_to_database(int(board_id), title, fingerprint)
+        task_id = data_manager.get_task_id(fingerprint)
+        data = {'id': task_id, 'board_id': board_id, 'title': title}
+        return jsonify(data)
 
 if __name__ == '__main__':
     app()

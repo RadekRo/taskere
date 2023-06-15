@@ -4,22 +4,21 @@ const taskContainer = document.createElement('div');
 
 const addTaskButtonContainer = document.createElement('div');
       addTaskButtonContainer.id = 'add_task_button'
-      addTaskButtonContainer.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1 bg-info';
+      addTaskButtonContainer.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
 
 const addTaskButton = document.createElement('button');
       addTaskButton.className = 'btn btn-sm btn-success';
       addTaskButton.id = 'add_task';
-      addTaskButton.textContent = 'DODEJ!';
+      addTaskButton.textContent = '+ Add task-list';
       addTaskButtonContainer.appendChild(addTaskButton);
       taskContainer.appendChild(addTaskButtonContainer);
 
 export class Task {
-    constructor(boardId, title) {
+    constructor(id, title) {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleTask.textContent = title;
-        this.singleTask.id = 'task';
-        this.singleTask.setAttribute('data-board-id', boardId);
+        this.singleTask.id = id;
     //     this.singleTask.setAttribute('id', boardId);
     //     this.singleTask.addEventListener('click', () => {
     //         console.log('You clicked task with ' + taskId + ' id!');
@@ -100,7 +99,7 @@ const getAllTasks = (boardId) => {
             
 const showTasks = (task_list, taskContainer, parentElement) => {
     task_list.forEach(task => {
-        const new_task = new Task(task['board_id'], task['title']);
+        const new_task = new Task(task['id'], task['title']);
         new_task.appendTo(taskContainer);
     });
     parentElement.appendChild(taskContainer);

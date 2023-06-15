@@ -1,6 +1,7 @@
 import { createBoardForm } from "../view/boardForm.js";
 //import { emptyInputAlert } from "../view/boardForm.js";
 import { Board } from "../view/boardList.js";
+import { Task } from "../view/taskList.js";
 import { show_login } from "../view/login.js";
 import { show_signin } from "../view/signin.js";
 import { createTaskListForm } from "../view/taskForm.js";
@@ -38,12 +39,13 @@ document.addEventListener('click', event => {
     }
     
     if (event.target.id === 'cancel_task') {
+        event.preventDefault();
         let parentElement = document.getElementById('add_task_button');
         parentElement.innerHTML = '';
         const addTaskButton = document.createElement('button');
               addTaskButton.className = 'btn btn-sm btn-success';
               addTaskButton.id = 'add_task';
-              addTaskButton.textContent = 'DODEJ!';
+              addTaskButton.textContent = '+ Add task-list';
         parentElement.appendChild(addTaskButton);
     }
 })
@@ -52,7 +54,7 @@ const taskFormSubmit = () => {
     const taskForm = document.getElementById('add_task')
           taskForm.addEventListener('submit', function(event) {  
             event.preventDefault(); 
-   
+            
             const formData = new FormData(this);
             fetch('/add_task', {
                 method: 'POST',
@@ -60,12 +62,18 @@ const taskFormSubmit = () => {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response)
-            // let root = document.getElementById('board_list');
-            // const newBoard = new Board(response['id'], response['title'], response['creation_date']);
-            // const newBoardNode = newBoard.getNode();
-            // root.insertBefore(newBoardNode, root.firstChild)
-            // inputField.value = '';
+                let root = document.getElementById('task_list');
+                const newTask = new Task(response['id'], response['title']);
+                const newTaskNode = newTask.getNode();
+                root.insertBefore(newTaskNode, root.lastChild)
+                
+                let parentElement = document.getElementById('add_task_button');
+                parentElement.innerHTML = '';
+                const addTaskButton = document.createElement('button');
+                      addTaskButton.className = 'btn btn-sm btn-success';
+                      addTaskButton.id = 'add_task';
+                      addTaskButton.textContent = '+ Add task-list';
+                parentElement.appendChild(addTaskButton);
             })
             .catch(error => {
                 console.error(error);
@@ -80,7 +88,7 @@ const boardFormSubmit = () => {
         
         event.preventDefault();
         
-        let boardForm = document.getElementById('new_board');
+        //let boardForm = document.getElementById('new_board');
         let inputField = document.getElementById('board_title');
 
         
