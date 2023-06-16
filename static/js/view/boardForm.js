@@ -10,11 +10,6 @@ export function createBoardForm() {
         boardForm.action = '/add_board';
         boardForm.className = 'd-flex justify-content-center';
 
-  // const boardNameLabel = document.createElement('label');
-  //       boardNameLabel.htmlFor = 'board_title';
-  //       boardNameLabel.textContent = '';
-  //       boardFormElements.appendChild(boardNameLabel);
-
   const inputGroup = document.createElement('div');
         inputGroup.className = 'input-group px-2';
         inputGroup.style.width = '50%';
@@ -51,8 +46,3 @@ export function createBoardForm() {
 
   return boardFormContainer;
 }
-
-// export const emptyInputAlert = document.createElement('div');
-//              emptyInputAlert.setAttribute('id', 'empty-input-alert');
-//              emptyInputAlert.className = 'bg-warning text=white'
-//              emptyInputAlert.innerHTML = 'Empty input field!'
