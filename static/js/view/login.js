@@ -62,7 +62,6 @@ export const show_login = () => {
     closeButton.addEventListener('click', event => {
         overlayDiv.remove();
         loginWindow.remove();
-        console.log('click')
     })
 
 }
