@@ -11,18 +11,24 @@ export const show_login = () => {
           overlayDiv.style.zIndex = '1';
           overlayDiv.className = 'd-flex justify-content-center align-items-center';
           
-    const loginWindow = document.createElement('div');
+      const loginWindow = document.createElement('div');
           loginWindow.style.width = '40%';
           loginWindow.style.height = '35%';
           loginWindow.style.zIndex = '9999';
           loginWindow.className = 'shadow p-3 mb-5 bg-white rounded';
 
-    const closeButton = document.createElement('button');
+      const closeButton = document.createElement('button');
           closeButton.className = 'btn btn-sm btn-danger text-white';
           closeButton.textContent = 'Close';
 
+      const loginButton = document.createElement('loginButton');
+            loginButton.className = 'btn btn-sm btn-success text-white';
+            loginButton.textContent = 'Login';
+    
+
     bodyElement.append(overlayDiv);
     loginWindow.appendChild(closeButton);
+    loginWindow.appendChild(loginButton);
     overlayDiv.append(loginWindow);
 
     closeButton.addEventListener('click', event => {

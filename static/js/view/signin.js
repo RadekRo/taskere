@@ -1,52 +1,42 @@
-var signinWindow = null;
 export const show_signin = () => {
-        if(signinWindow !== null) {
-            signinWindow.remove();
-        }
-signinWindow = document.createElement('div');
-signinWindow.innerHTML = `
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="defaultForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-        </div>
+  const bodyElement = document.querySelector('body');
+  
+  const overlayDiv = document.createElement('div');
+        overlayDiv.style.position = 'fixed';
+        overlayDiv.style.top = '0';
+        overlayDiv.style.left = '0';
+        overlayDiv.style.width = '100%';  
+        overlayDiv.style.height = '100%';
+        overlayDiv.style.backgroundColor = 'rgba(128, 128, 128, 0.5)';
+        overlayDiv.style.zIndex = '1';
+        overlayDiv.className = 'd-flex justify-content-center align-items-center';
+        
+  const signinWindow = document.createElement('div');
+        signinWindow.style.width = '40%';
+        signinWindow.style.height = '35%';
+        signinWindow.style.zIndex = '9999';
+        signinWindow.className = 'shadow p-3 mb-5 bg-white rounded';
 
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-        </div>
+  const closeButton = document.createElement('button');
+        closeButton.className = 'btn btn-sm btn-danger text-white';
+        closeButton.textContent = 'Close';
 
-        <div class="md-form mb-4">
-        <i class="fas fa-lock prefix grey-text"></i>
-        <input type="password" id="defaultForm-pass retype" class="form-control validate">
-        <label data-error="wrong" data-success="right" for="defaultForm-pass">Re-type your password</label>
-      </div>
+  const signinButton = document.createElement('loginButton');
+        signinButton.className = 'btn btn-sm btn-success text-white';
+        signinButton.textContent = 'SignIn';
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-default">Sign in</button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-     
-document.querySelector('body').append(signinWindow);
+  bodyElement.append(overlayDiv);
+  signinWindow.appendChild(closeButton);
+  signinWindow.appendChild(signinButton);
+  overlayDiv.append(signinWindow);
 
-var modal = new bootstrap.Modal(signinWindow.querySelector('.modal'));
-modal.show();
+  closeButton.addEventListener('click', event => {
+      overlayDiv.remove();
+      signinWindow.remove();
+      console.log('click')
+  })
+
 }
+
 
 
