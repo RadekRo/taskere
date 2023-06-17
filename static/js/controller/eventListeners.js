@@ -1,11 +1,9 @@
 import { createBoardForm } from "../view/boardForm.js";
-//import { emptyInputAlert } from "../view/boardForm.js";
 import { Board } from "../view/boardList.js";
 import { Task } from "../view/taskList.js";
 import { show_login } from "../view/login.js";
 import { show_signin } from "../view/signin.js";
 import { createTaskListForm } from "../view/taskForm.js";
-//import { addTaskElement } from "../view/taskList.js";
 
 export function createNewBoardButtonClick() {
     
@@ -94,13 +92,6 @@ const boardFormSubmit = () => {
         
         if (inputField.value.trim() === '') {
             alert('Please enter a board title.'); 
-            // this might be refactored to show the user that his input is empty in other way than alert
-            // boardForm.append(emptyInputAlert);
-            // setTimeout(() => {
-            //     var div = document.getElementById('empty-input-alert');
-            //     div.parentNode.removeChild(div);
-            //   }, 2000);
-            // return; 
         } else {
         console.log(this)
         const formData = new FormData(this);
