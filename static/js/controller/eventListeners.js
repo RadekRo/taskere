@@ -93,9 +93,7 @@ const boardFormSubmit = () => {
         if (inputField.value.trim() === '') {
             alert('Please enter a board title.'); 
         } else {
-        console.log(this)
         const formData = new FormData(this);
-        console.log(formData);
         fetch('/add_board', {
           method: 'POST',
           body: formData
