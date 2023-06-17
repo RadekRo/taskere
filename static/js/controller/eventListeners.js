@@ -81,12 +81,12 @@ const taskFormSubmit = () => {
 
 
 const boardFormSubmit = () => {
+    
     let boardForm = document.getElementById('new_board');
         boardForm.addEventListener("submit", function(event) {
         
         event.preventDefault();
         
-        //let boardForm = document.getElementById('new_board');
         let inputField = document.getElementById('board_title');
 
         
