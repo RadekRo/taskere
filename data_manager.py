@@ -1,35 +1,28 @@
 import database, random, string, bcrypt
 from datetime import datetime
 
-def get_fingerprint(fingerprint_length = 12):
-    characters = string.ascii_letters + string.digits
-    fingerprint = ''.join(random.choice(characters) for _ in range(fingerprint_length))
-    return fingerprint
-
 def get_current_date_time():
-    date_and_time = str(datetime.now())[0:16]
+    date_and_time = datetime.now().strftime('%Y-%m-%d %H:%M')
     return date_and_time
 
 @database.connection_handler
-def add_board_to_database(cursor, creation_date:str, title:str, fingerprint:str):
+def add_board_to_database(cursor, creation_date:str, title:str):
     query = """
-    INSERT INTO boards (creation_date, title, fingerprint)
-    VALUES (%(creation_date)s, %(title)s, %(fingerprint)s)
+    INSERT INTO boards (creation_date, title)
+    VALUES (%(creation_date)s, %(title)s)
     """
     data = {'creation_date': creation_date, 
-            'title': title, 
-            'fingerprint': fingerprint}
+            'title': title}
     cursor.execute(query, data)
 
 @database.connection_handler
-def add_task_to_database(cursor, board_id:int, title:str, fingerprint:str):
+def add_task_to_database(cursor, board_id:int, title:str):
     query = """
-    INSERT INTO tasks (board_id, title, fingerprint)
-    VALUES (%(board_id)s, %(title)s, %(fingerprint)s)
+    INSERT INTO tasks (board_id, title)
+    VALUES (%(board_id)s, %(title)s)
     """
     data = {'board_id': board_id, 
-            'title': title, 
-            'fingerprint': fingerprint}
+            'title': title}
     cursor.execute(query, data)
 
 @database.connection_handler
@@ -43,14 +36,13 @@ def get_boards(cursor):
     return cursor.fetchall()
 
 @database.connection_handler
-def get_board_id(cursor, fingerprint):
+def get_current_board_id(cursor):
     query = """
     SELECT id
     FROM boards 
-    WHERE fingerprint = %(fingerprint)s
+    ORDER BY id DESC LIMIT 1
     """
-    data = {'fingerprint': fingerprint}
-    cursor.execute(query, data)
+    cursor.execute(query)
     result = cursor.fetchone()
     return result['id']
 
@@ -67,14 +59,13 @@ def get_tasks(cursor, board_id):
     return cursor.fetchall()
 
 @database.connection_handler
-def get_task_id(cursor, fingerprint):
+def get_current_task_id(cursor):
     query = """
     SELECT id
     FROM tasks 
-    WHERE fingerprint = %(fingerprint)s
+    ORDER BY id DESC LIMIT 1
     """
-    data = {'fingerprint': fingerprint}
-    cursor.execute(query, data)
+    cursor.execute(query)
     result = cursor.fetchone()
     return result['id']
 

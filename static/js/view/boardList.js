@@ -1,8 +1,6 @@
 import { expandTitleWindow } from "./expandTitleWindow.js";
 import { showTaskList } from "./taskList.js";
 
-
-
 const boardContainer = document.createElement('div');
       boardContainer.setAttribute('id', 'board_list');
       boardContainer.className = 'row px-3';
@@ -12,14 +10,14 @@ export class Board {
         
         this.singleBoard = document.createElement('div');
         this.singleBoard.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
-        this.singleBoard.setAttribute('id', boardId);
+        this.singleBoard.id = boardId;
         this.singleBoard.addEventListener('click', () => {
-            let titleWindow = document.getElementById('title_window');
-            titleWindow.innerHTML = '';
-            // titleWindow.innerHTML = '';
-            expandTitleWindow(titleWindow, {'title': textContent, 'id': boardId})
-            let mainWindow = document.getElementById('root');
-            mainWindow.innerHTML = '';
+            const titleWindow = document.getElementById('title_window');
+                  titleWindow.innerHTML = '';
+            expandTitleWindow(titleWindow, { 'title': textContent, 
+                                             'id': boardId })
+            const mainWindow = document.getElementById('root');
+                  mainWindow.innerHTML = '';
             showTaskList(mainWindow, boardId);
 
         });
@@ -92,7 +90,7 @@ const getAllBoards = () => {
 const showBoards = (boards_list, boardContainer, parentElement) => {
     boards_list.forEach(board => {
         const new_board = new Board(board.id, board.title, board.creation_date);
-        new_board.appendTo(boardContainer);
+              new_board.appendTo(boardContainer);
     });
     parentElement.appendChild(boardContainer);
 };
