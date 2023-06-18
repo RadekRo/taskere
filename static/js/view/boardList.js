@@ -2,7 +2,7 @@ import { expandTitleWindow } from "./expandTitleWindow.js";
 import { showTaskList } from "./taskList.js";
 
 const boardContainer = document.createElement('div');
-      boardContainer.setAttribute('id', 'board_list');
+      boardContainer.id = 'board_list';
       boardContainer.className = 'row px-3';
 
 export class Board {

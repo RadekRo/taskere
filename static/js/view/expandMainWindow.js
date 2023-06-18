@@ -7,7 +7,7 @@ export function expandMainWindow(parentElement, options) {
     }
     
     if (options.tasks) {
-        showTasksList(parentElement)
+        showTasksList(parentElement);
     }
 
 }
