@@ -4,8 +4,9 @@ import { Task } from "../view/taskList.js";
 import { show_login } from "../view/login.js";
 import { show_signin } from "../view/signin.js";
 import { createTaskListForm } from "../view/taskForm.js";
+import { showAddTaskButton } from "../view/taskList.js";
 
-export function createNewBoardButtonClick() {
+export function showNewBoardForm() {
     
     document.addEventListener('click', event => {
         if (event.target.id === 'create_new_board') {
@@ -35,16 +36,9 @@ document.addEventListener('click', event => {
         createTaskListForm(taskFormContainer);
         taskFormSubmit();
     }
-    
     if (event.target.id === 'cancel_task') {
         event.preventDefault();
-        let parentElement = document.getElementById('add_task_button');
-        parentElement.innerHTML = '';
-        const addTaskButton = document.createElement('button');
-              addTaskButton.className = 'btn btn-sm btn-success';
-              addTaskButton.id = 'add_task';
-              addTaskButton.textContent = '+ Add task-list';
-        parentElement.appendChild(addTaskButton);
+        showAddTaskButton();
     }
 })
 
@@ -60,18 +54,11 @@ const taskFormSubmit = () => {
             })
             .then(response => response.json())
             .then(response => {
-                let root = document.getElementById('task_list');
+                let taskWindow = document.getElementById('task_list');
                 const newTask = new Task(response['id'], response['title']);
                 const newTaskNode = newTask.getNode();
-                root.insertBefore(newTaskNode, root.lastChild)
-                
-                let parentElement = document.getElementById('add_task_button');
-                parentElement.innerHTML = '';
-                const addTaskButton = document.createElement('button');
-                      addTaskButton.className = 'btn btn-sm btn-success';
-                      addTaskButton.id = 'add_task';
-                      addTaskButton.textContent = '+ Add task-list';
-                parentElement.appendChild(addTaskButton);
+                taskWindow.insertBefore(newTaskNode, taskWindow.lastChild)
+                showAddTaskButton();
             })
             .catch(error => {
                 console.error(error);
@@ -87,30 +74,29 @@ const boardFormSubmit = () => {
         event.preventDefault();
         
         let inputField = document.getElementById('board_title');
-
         
         if (inputField.value.trim() === '') {
             alert('Please enter a board title.'); 
         } else {
-        const formData = new FormData(this);
-        fetch('/add_board', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(response => {
-          let root = document.getElementById('board_list');
-          const newBoard = new Board(response['id'], response['title'], response['creation_date']);
-          const newBoardNode = newBoard.getNode();
-          root.insertBefore(newBoardNode, root.firstChild)
-          inputField.value = '';
-        })
-        .catch(error => {
-          console.error(error);
-          // obsługa błędu na stronie
+            const formData = new FormData(this);
+            fetch('/add_board', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                let boardWindow = document.getElementById('board_list');
+                const newBoard = new Board(response['id'], response['title'], response['creation_date']);
+                const newBoardNode = newBoard.getNode();
+                boardWindow.insertBefore(newBoardNode, boardWindow.firstChild)
+                inputField.value = '';
+            })
+            .catch(error => {
+                console.error(error);
+                //TODO: Add error handling on the page not only in console
+            });
+        }
         });
-    }
-      });
 
 }
 

@@ -94,7 +94,17 @@ const getAllTasks = (boardId) => {
         xhr.send();
     });
 }
-            
+
+export function showAddTaskButton() {
+    let parentElement = document.getElementById('add_task_button');
+        parentElement.innerHTML = '';
+        const addTaskButton = document.createElement('button');
+              addTaskButton.className = 'btn btn-sm btn-success';
+              addTaskButton.id = 'add_task';
+              addTaskButton.textContent = '+ Add task-list';
+        parentElement.appendChild(addTaskButton);
+}
+
 const showTasks = (task_list, taskContainer, parentElement) => {
     task_list.forEach(task => {
         const new_task = new Task(task['id'], task['title']);
