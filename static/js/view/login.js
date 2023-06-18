@@ -20,7 +20,7 @@ export const show_login = () => {
 
       const closeButton = document.createElement('button');
           closeButton.className = 'btn btn-sm btn-danger text-white';
-          closeButton.textContent = 'Close';
+          closeButton.innerHTML = '<i class="fa-solid fa-xmark"></i> Close';
 
       const loginButton = document.createElement('loginButton');
             loginButton.className = 'btn btn-sm btn-success text-white';

@@ -28,13 +28,13 @@ export function createBoardForm() {
   const boardNameSubmit = document.createElement('button');
         boardNameSubmit.className = 'btn btn-sm btn-success';
         boardNameSubmit.type = 'submit';
-        boardNameSubmit.textContent = 'Save your board';
+        boardNameSubmit.textContent = 'Save';
 
   inputGroup.appendChild(boardNameSubmit);
 
   const boardNameCancel = document.createElement('input');
         boardNameCancel.type = 'button';
-        boardNameCancel.value = 'Cancel/Hide';
+        boardNameCancel.value = 'Cancel';
         boardNameCancel.id = 'add_board_cancel';
         boardNameCancel.className = 'btn btn-sm btn-danger';
 
