@@ -60,6 +60,7 @@ def get_tasks(cursor, board_id):
     SELECT *
     FROM tasks 
     WHERE board_id = %(board_id)s
+    ORDER by id DESC
     """
     data = {'board_id': board_id}
     cursor.execute(query, data)

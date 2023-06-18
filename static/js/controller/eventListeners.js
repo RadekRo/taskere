@@ -79,7 +79,6 @@ const taskFormSubmit = () => {
         });
 }
 
-
 const boardFormSubmit = () => {
     
     let boardForm = document.getElementById('new_board');
@@ -108,6 +107,7 @@ const boardFormSubmit = () => {
         })
         .catch(error => {
           console.error(error);
+          // obsługa błędu na stronie
         });
     }
       });

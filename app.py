@@ -34,7 +34,7 @@ def add_task():
     if request.method == "POST":
         title = request.form.get('title')
         board_id = request.form.get('board_id')
-        # fingerprint is a 12 characters (as default) random string for making boards more unique
+        # fingerprint is a 12 characters (as default) random string for making boards more unique - do wywalenia
         fingerprint = data_manager.get_fingerprint(12)
         data_manager.add_task_to_database(int(board_id), title, fingerprint)
         task_id = data_manager.get_task_id(fingerprint)

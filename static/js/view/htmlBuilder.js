@@ -26,8 +26,8 @@ export function createTitleWindow(title, button) {
 
 export function createMainWindow() {
      const mainWindow = document.createElement('main');
-           mainWindow.setAttribute('id', 'root');
-           mainWindow.style.padding = '10px';
+           mainWindow.id = 'root';
+           mainWindow.className= 'p-10';
      body.appendChild(mainWindow)
      expandMainWindow(mainWindow, { 'boards': true });
 }

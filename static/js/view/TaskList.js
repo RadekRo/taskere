@@ -17,9 +17,7 @@ export class Task {
     constructor(id, title) {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
-        this.singleTask.textContent = title;
         this.singleTask.id = id;
-    //     this.singleTask.setAttribute('id', boardId);
     //     this.singleTask.addEventListener('click', () => {
     //         console.log('You clicked task with ' + taskId + ' id!');
     //         let titleWindow = document.getElementById('title_window');
@@ -31,34 +29,34 @@ export class Task {
 
     //     });
 
-    //     this.card = document.createElement('div');
-    //     this.card.className = 'card';
-    //     this.card.style.transition = 'background-color 0.3s ease';
-    //     this.card.style.backgroundColor = '#f9f9f9';
-    //     this.card.style.height = '150px';
+        this.card = document.createElement('div');
+        this.card.className = 'card';
+        this.card.style.transition = 'background-color 0.3s ease';
+        this.card.style.backgroundColor = '#f9f9f9';
+        this.card.style.height = '150px';
 
-    //     this.card.addEventListener('mouseover', () => {
-    //     this.card.style.backgroundColor = '#d9d9f9';
-    //     this.card.style.cursor = 'pointer';
-    //     });
+        this.card.addEventListener('mouseover', () => {
+        this.card.style.backgroundColor = '#d9d9f9';
+        this.card.style.cursor = 'pointer';
+        });
 
-    //     this.card.addEventListener('mouseout', () => {
-    //     this.card.style.backgroundColor = '#f9f9f9';
-    //     });
+        this.card.addEventListener('mouseout', () => {
+        this.card.style.backgroundColor = '#f9f9f9';
+        });
 
-    //     this.cardHeader = document.createElement('div');
-    //     this.cardHeader.className = 'card-header';
-    //     this.cardHeader.textContent = textContent;
+        this.cardHeader = document.createElement('div');
+        this.cardHeader.className = 'card-header';
+        this.cardHeader.textContent = title;
         
-    //     this.cardBody = document.createElement('div');
-    //     this.cardBody.className = 'card-body board-info';
-    //     this.cardBody.innerHTML = 'created: ' + creation_date;
+        this.cardBody = document.createElement('div');
+        this.cardBody.className = 'card-body board-info';
+        this.cardBody.innerHTML = '';
 
-    //     this.cardBody.appendChild(document.createElement('br'));
-    //     this.card.appendChild(this.cardHeader);
-    //     this.card.appendChild(this.cardBody);
+        this.cardBody.appendChild(document.createElement('br'));
+        this.card.appendChild(this.cardHeader);
+        this.card.appendChild(this.cardBody);
     
-    //     this.singleBoard.appendChild(this.card);
+        this.singleTask.appendChild(this.card);
     }
     appendTo(parentElement) {
         parentElement.insertBefore(this.singleTask, parentElement.firstChild);

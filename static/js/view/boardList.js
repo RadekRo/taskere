@@ -1,6 +1,8 @@
 import { expandTitleWindow } from "./expandTitleWindow.js";
 import { showTaskList } from "./taskList.js";
 
+
+
 const boardContainer = document.createElement('div');
       boardContainer.setAttribute('id', 'board_list');
       boardContainer.className = 'row px-3';
@@ -14,6 +16,7 @@ export class Board {
         this.singleBoard.addEventListener('click', () => {
             let titleWindow = document.getElementById('title_window');
             titleWindow.innerHTML = '';
+            // titleWindow.innerHTML = '';
             expandTitleWindow(titleWindow, {'title': textContent, 'id': boardId})
             let mainWindow = document.getElementById('root');
             mainWindow.innerHTML = '';
