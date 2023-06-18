@@ -5,7 +5,7 @@ export function expandHeader(parentElement, options) {
     }
 
     const   buttonsContainer = document.createElement('div');
-            buttonsContainer.className = "d-flex align-items-center"
+            buttonsContainer.className = "d-flex align-items-center p-2"
 
     if (options.loginButton) {
         buttonsContainer.appendChild(createLogInButton());
@@ -40,8 +40,8 @@ function createLogo() {
 
 function createLogInButton () {
     const   logButton = document.createElement('buttonSign');
-            logButton.textContent = 'Login';
-            logButton.className = 'btn btn-sm btn-warning text-dark me-1 text-bold'
+            logButton.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Login';
+            logButton.className = 'btn btn-sm btn-warning text-dark me-3 text-bold'
             logButton.id = 'login_button'
 
     const currentDiv = document.getElementById("div");
@@ -51,7 +51,7 @@ function createLogInButton () {
 
 function createSignInButton () { 
     const   signButton = document.createElement('buttonLog');
-            signButton.textContent = 'Sign in';
+            signButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Sign in';
             signButton.className = 'btn btn-sm btn-info text-dark me-1 text-bold';
             signButton.id = 'signin_button';
 

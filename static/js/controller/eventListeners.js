@@ -100,7 +100,7 @@ const boardFormSubmit = () => {
 
 }
 
-function boardFormCancel() {
+const boardFormCancel = () => {
     let boardContainer = document.getElementById('add_new_board_form');
     let inputField = document.getElementById('board_title');
     let cancelButton = document.getElementById('add_board_cancel');
