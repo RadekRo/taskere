@@ -19,15 +19,21 @@ def add_board():
     else:
         return "Method not allowed!"
 
-@app.route("/get_boards", methods=["POST", "GET"])
+@app.route("/get_boards", methods=["GET"])
 def get_boards_list():
-    data = data_manager.get_boards()
-    return jsonify(data)
+    if request.method == "GET":
+        data = data_manager.get_boards()
+        return jsonify(data)
+    else:
+        return "Method not allowed!"
 
-@app.route("/get_tasks/<boardId>", methods=["POST", "GET"])
+@app.route("/get_tasks/<boardId>", methods=["GET"])
 def get_tasks(boardId):
-    data = data_manager.get_tasks(boardId)
-    return jsonify(data)
+    if request.method == "GET":
+        data = data_manager.get_tasks(boardId)
+        return jsonify(data)
+    else:
+        return "Method not allowed!"
 
 @app.route("/add_task", methods=["POST"])
 def add_task():
