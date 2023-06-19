@@ -5,7 +5,7 @@ export const show_login = () => {
     
       const loginWindow = document.createElement('div');
             loginWindow.style.width = '40%';
-            loginWindow.style.height = '35%';
+            //loginWindow.style.height = '35%';
             loginWindow.style.zIndex = '9999';
             loginWindow.className = 'shadow p-3 mb-5 bg-white rounded';
             loginWindow.id = 'loginWindow';
@@ -48,8 +48,7 @@ export const show_login = () => {
                   loginNameInput2.maxLength = '50';
                   loginNameInput2.name = 'title';
                   loginNameInput2.placeholder = 'Enter new board title';
-                  loginNameInput2.className = 'form-control';
-                  loginNameInput2.style.width = '100%';
+                  loginNameInput2.className = 'form-control w-100';
             
             userPswdContainer.append(loginNameInput2)
       
@@ -70,7 +69,7 @@ export const show_login = () => {
       loginWindow.appendChild(loginButtonContainer);
       overlayDiv.append(loginWindow);
 
-      closeButton.addEventListener('click', event => {
+      closeButton.addEventListener('click', () => {
             overlayDiv.remove();
             loginWindow.remove();
       })

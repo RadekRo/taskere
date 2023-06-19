@@ -31,6 +31,9 @@ document.addEventListener('click', event => {
     if (event.target.id === 'signin_button') {
         show_signin();
     }
+    if (event.target.id === 'sign_in_commercial') {
+        show_signin();
+    }
     if (event.target.id === 'add_task') {
         const taskFormContainer = document.getElementById('add_task_button');
         createTaskListForm(taskFormContainer);
