@@ -2,6 +2,15 @@ header {
     background-color: #013080;
 }
 
+.board-info {
+    font-size: 0.8em;
+    color: #777777;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
 .text-bold {
     font-weight: bold;
 }
@@ -16,13 +25,10 @@ header {
     color: grey;
 }
 
-.board-info {
-    font-size: 0.8em;
-    color: #777777;
-}
-
-.p-10 {
-    padding: 10px;
+.user-form-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
 }
 
 .w-100 {

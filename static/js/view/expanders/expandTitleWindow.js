@@ -20,7 +20,7 @@ export function expandTitleWindow(titleWindow, options) {
         titleImg.alt = 'get you free account sign';
         titleImg.style.height = '40px';
         titleImg.className = 'rounded';
-        titleImg.id = 'sign_in_commercial';
+        titleImg.id = 'sign_in_link';
         titleImg.style.cursor = 'pointer';
 
     const titleInfo = document.createElement('div');

@@ -5,6 +5,7 @@ import { show_login } from "../view/forms/loginForm.js";
 import { show_signin } from "../view/forms/signinForm.js";
 import { createTaskListForm } from "../view/forms/taskForm.js";
 import { showAddTaskButton } from "../view/lists/taskList.js";
+import { overlayDiv } from "../view/overLayers.js";
 
 export function showNewBoardForm() {
     
@@ -31,7 +32,7 @@ document.addEventListener('click', event => {
     if (event.target.id === 'signin_button') {
         show_signin();
     }
-    if (event.target.id === 'sign_in_commercial') {
+    if (event.target.id === 'sign_in_link') {
         show_signin();
     }
     if (event.target.id === 'add_task') {
