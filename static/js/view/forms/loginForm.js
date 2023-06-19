@@ -46,15 +46,15 @@ export const show_login = () => {
       const userPswdContainer = document.createElement('div');      
             userPswdContainer.className = 'input-group px-2 py-2 w-100';
   
-            const loginNameInput2 = document.createElement('input');
-                  loginNameInput2.id = 'board_title';
-                  loginNameInput2.type = 'password';
-                  loginNameInput2.maxLength = '50';
-                  loginNameInput2.name = 'title';
-                  loginNameInput2.placeholder = 'Password';
-                  loginNameInput2.className = 'form-control w-100';
+            const passwordInput = document.createElement('input');
+                  passwordInput.id = 'board_title';
+                  passwordInput.type = 'password';
+                  passwordInput.maxLength = '50';
+                  passwordInput.name = 'title';
+                  passwordInput.placeholder = 'Password';
+                  passwordInput.className = 'form-control w-100';
             
-            userPswdContainer.append(loginNameInput2)
+            userPswdContainer.append(passwordInput)
       
       loginForm.append(userPswdContainer)
     
