@@ -1,6 +1,6 @@
-import { expandHeader } from './expandHeader.js';
-import { expandTitleWindow } from './expandTitleWindow.js';
-import { expandMainWindow } from './expandMainWindow.js';
+import { expandHeader } from './expanders/expandHeader.js';
+import { expandTitleWindow } from './expanders/expandTitleWindow.js';
+import { expandMainWindow } from './expanders/expandMainWindow.js';
 import * as eventListeners from '../controller/eventListeners.js';
 
 const body = document.querySelector('body');

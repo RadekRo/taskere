@@ -30,7 +30,7 @@ export const show_login = () => {
 
     const inputGroup = document.createElement('div');
           inputGroup.className = 'input-group px-2';
-          inputGroup.style.width = '50%';
+          inputGroup.style.width = '100%';
   
     const loginNameInput = document.createElement('input');
           loginNameInput.id = 'board_title';
@@ -39,9 +39,18 @@ export const show_login = () => {
           loginNameInput.name = 'title';
           loginNameInput.placeholder = 'Enter new board title';
           loginNameInput.className = 'form-control';
-          loginNameInput.style.width = '50%';
+          loginNameInput.style.width = '100%';
     loginForm.append(loginNameInput)
 
+    const loginNameInput2 = document.createElement('input');
+          loginNameInput2.id = 'board_title';
+          loginNameInput2.type = 'text';
+          loginNameInput2.maxLength = '50';
+          loginNameInput2.name = 'title';
+          loginNameInput2.placeholder = 'Enter new board title';
+          loginNameInput2.className = 'form-control';
+          loginNameInput2.style.width = '100%';
+    loginForm.append(loginNameInput2)
 
     const loginButton = document.createElement('loginButton');
           loginButton.className = 'btn btn-sm btn-success text-white';

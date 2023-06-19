@@ -1,10 +1,10 @@
-import { createBoardForm } from "../view/boardForm.js";
-import { Board } from "../view/boardList.js";
-import { Task } from "../view/taskList.js";
-import { show_login } from "../view/login.js";
-import { show_signin } from "../view/signin.js";
-import { createTaskListForm } from "../view/taskForm.js";
-import { showAddTaskButton } from "../view/taskList.js";
+import { createBoardForm } from "../view/forms/boardForm.js";
+import { Board } from "../view/lists/boardList.js";
+import { Task } from "../view/lists/taskList.js";
+import { show_login } from "../view/forms/loginForm.js";
+import { show_signin } from "../view/forms/signinForm.js";
+import { createTaskListForm } from "../view/forms/taskForm.js";
+import { showAddTaskButton } from "../view/lists/taskList.js";
 
 export function showNewBoardForm() {
     

@@ -1,4 +1,4 @@
-import { expandTitleWindow } from "./expandTitleWindow.js";
+import { expandTitleWindow } from "../expanders/expandTitleWindow.js";
 import { showTaskList } from "./taskList.js";
 
 const boardContainer = document.createElement('div');
