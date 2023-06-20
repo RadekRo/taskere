@@ -2,8 +2,8 @@ import { overlayDiv } from "../overLayers.js";
 
 export const show_login = () => {
       
-      const bodyElement = body;
-      
+      const bodyElement = constants_body;
+
       const loginWindow = document.createElement('div');
             loginWindow.style.width = '35%';
             loginWindow.style.zIndex = '9999';

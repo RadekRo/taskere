@@ -1,5 +1,5 @@
 export function setConstantElements() {
     
-    window.body = document.querySelector('body');
+    window.constants_body = document.querySelector('body');
 
 }
