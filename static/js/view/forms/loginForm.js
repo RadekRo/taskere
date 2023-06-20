@@ -30,7 +30,7 @@ export const show_login = () => {
             userNameContainer.className = 'input-group px-2 py-2 w-100';
   
             const userNameInput = document.createElement('input');
-                  userNameInput.id = 'board_title';
+                  userNameInput.id = 'username';
                   userNameInput.type = 'text';
                   userNameInput.maxLength = '50';
                   userNameInput.name = 'title';
@@ -45,7 +45,7 @@ export const show_login = () => {
             userPswdContainer.className = 'input-group px-2 py-2 w-100';
   
             const passwordInput = document.createElement('input');
-                  passwordInput.id = 'board_title';
+                  passwordInput.id = 'password';
                   passwordInput.type = 'password';
                   passwordInput.maxLength = '50';
                   passwordInput.name = 'title';
