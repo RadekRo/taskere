@@ -2,6 +2,8 @@ import { overlayDiv } from "../overLayers.js";
 
 export const show_login = () => {
 
+      const body = document.querySelector('body');
+
       const loginWindow = document.createElement('div');
             loginWindow.style.width = '35%';
             loginWindow.style.zIndex = '9999';
@@ -65,7 +67,7 @@ export const show_login = () => {
 
             loginButtonContainer.appendChild(loginButton)
       
-      constantsBODY.append(overlayDiv);
+      body.append(overlayDiv);
       loginWindow.appendChild(closeButtonContainer);
       loginWindow.appendChild(titleElement);
       loginWindow.appendChild(loginForm);

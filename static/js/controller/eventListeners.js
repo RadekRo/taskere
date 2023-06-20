@@ -5,7 +5,6 @@ import { show_login } from "../view/forms/loginForm.js";
 import { show_signin } from "../view/forms/signinForm.js";
 import { createTaskListForm } from "../view/forms/taskForm.js";
 import { showAddTaskButton } from "../view/lists/taskList.js";
-import { overlayDiv } from "../view/overLayers.js";
 
 export function showNewBoardForm() {
     
