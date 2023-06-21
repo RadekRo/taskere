@@ -14,14 +14,15 @@ export function createHeader() {
                             'loginButton': true });
 }
 
-export function createTitleWindow(title, button) {
+export function createTitleWindow() {
      const titleWindow = document.createElement('div');
            titleWindow.id = 'title_window';
            titleWindow.className = 'd-flex justify-content-between border-bottom p-2';
      body.appendChild(titleWindow)
-     expandTitleWindow(titleWindow, { 'icon': true,
-                                      'title': title, 
-                                      'button': button });
+     expandTitleWindow(titleWindow, { 'icon': 'fa-solid fa-people-group fa-beat',
+                                      'title': 'Public boards',
+                                      'commercial': true, 
+                                      'button': true });
 }
 
 export function createMainWindow() {
