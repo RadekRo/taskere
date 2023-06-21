@@ -69,7 +69,7 @@ const userPswdContainer = document.createElement('div');
         repeatPasswordInput.placeholder = 'Re-type password';
         repeatPasswordInput.className = 'form-control w-100';
   
-userRepeatPswdContainer.append(passwordInput2)
+userRepeatPswdContainer.append(repeatPasswordInput)
 
 signinForm.append(userPswdContainer)
 signinForm.append(userRepeatPswdContainer)
