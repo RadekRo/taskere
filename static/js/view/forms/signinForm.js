@@ -62,7 +62,7 @@ const userPswdContainer = document.createElement('div');
         userRepeatPswdContainer.className = 'input-group px-2 py-2 w-100';
 
   const repeatPasswordInput = document.createElement('input');
-        repeatPasswordInput.id = 'password';
+        repeatPasswordInput.id = 'repeat_password';
         repeatPasswordInput.type = 'password';
         repeatPasswordInput.maxLength = '50';
         repeatPasswordInput.name = 'title';
