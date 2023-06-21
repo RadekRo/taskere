@@ -58,22 +58,21 @@ const userPswdContainer = document.createElement('div');
 
   signinForm.append(userPswdContainer)
 
-  const userPswdContainer2 = document.createElement('div');      
-  userPswdContainer2.className = 'input-group px-2 py-2 w-100';
+  const userRepeatPswdContainer = document.createElement('div');      
+        userRepeatPswdContainer.className = 'input-group px-2 py-2 w-100';
 
-  const passwordInput2 = document.createElement('input');
-        passwordInput2.id = 'password';
-        passwordInput2.type = 'password';
-        passwordInput2.maxLength = '50';
-        passwordInput2.name = 'title';
-        passwordInput2.placeholder = 'Re-type password';
-        passwordInput2.className = 'form-control w-100';
+  const repeatPasswordInput = document.createElement('input');
+        repeatPasswordInput.id = 'password';
+        repeatPasswordInput.type = 'password';
+        repeatPasswordInput.maxLength = '50';
+        repeatPasswordInput.name = 'title';
+        repeatPasswordInput.placeholder = 'Re-type password';
+        repeatPasswordInput.className = 'form-control w-100';
   
-  userPswdContainer.append(passwordInput2)
-
-signinForm.append(userPswdContainer2)
+userRepeatPswdContainer.append(passwordInput2)
 
 signinForm.append(userPswdContainer)
+signinForm.append(userRepeatPswdContainer)
 
 const signinButtonContainer = document.createElement('div');      
 signinButtonContainer.className = 'd-flex justify-content-center pt-2 w-100';
