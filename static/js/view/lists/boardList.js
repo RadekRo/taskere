@@ -14,8 +14,10 @@ export class Board {
         this.singleBoard.addEventListener('click', () => {
             const titleWindow = document.getElementById('title_window');
                   titleWindow.innerHTML = '';
-            expandTitleWindow(titleWindow, { 'title': textContent, 
-                                             'id': boardId })
+            expandTitleWindow(titleWindow, { 'title': '... ' + textContent, 
+                                             'id': boardId,
+                                            'icon': 'fa-regular fa-clipboard',
+                                            'commercial': true})
             const mainWindow = document.getElementById('root');
                   mainWindow.innerHTML = '';
             showTaskList(mainWindow, boardId);
