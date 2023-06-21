@@ -24,9 +24,9 @@ const closeButtonContainer = document.createElement('div');
   closeButtonContainer.appendChild(closeButton);
 
 const signinForm = document.createElement('form');
-      signinForm.id = 'login_form';
+      signinForm.id = 'signin_form';
       signinForm.method = 'POST';
-      signinForm.action = '/login';
+      signinForm.action = '/signin';
 
 const userNameContainer = document.createElement('div');      
   userNameContainer.className = 'input-group px-2 py-2 w-100';
