@@ -1,4 +1,5 @@
 import { overlayDiv } from "../overLayers.js";
+import { login } from "../forms/login.js";
 
 export const show_login = () => {
 
@@ -78,5 +79,11 @@ export const show_login = () => {
             overlayDiv.remove();
             loginWindow.remove();
       })
+
+      loginButton.addEventListener('click', () => {
+            overlayDiv.remove();
+            loginWindow.remove();
+            login();
+          })  
 
 }

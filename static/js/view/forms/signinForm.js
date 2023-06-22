@@ -1,4 +1,5 @@
 import { overlayDiv } from "../overLayers.js";
+import { signin } from "../forms/signin.js";
 
 export const show_signin = () => {
 
@@ -93,6 +94,12 @@ overlayDiv.append(signinWindow);
 closeButton.addEventListener('click', () => {
   overlayDiv.remove();
   signinWindow.remove();
+})
+
+signinButton.addEventListener('click', () => {
+  overlayDiv.remove();
+  signinWindow.remove();
+  signin();
 })
 
 }
