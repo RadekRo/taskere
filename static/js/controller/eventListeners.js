@@ -32,9 +32,6 @@ document.addEventListener('click', event => {
     if (event.target.id === 'signin_button') {
         show_signin();
     }
-    // if (event.target.id === 'signinButton') {
-    //     signin();
-    // }
     if (event.target.id === 'sign_in_link') {
         show_signin();
     }

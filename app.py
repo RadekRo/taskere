@@ -46,6 +46,17 @@ def add_task():
         return jsonify(data)
     else:
         return "Method not allowed!"
+    
+@app.route("/add_user", methods=["POST"])
+def add_user():
+    if request.method == "POST":
+        login = request.form.get('username')
+        password = request.form.get('password')
+        hashed_password = data_manager.hash_password(password)
+        current_date = data_manager.get_current_date_time()
+        data_manager.add_new_user(login, hashed_password, current_date)
+        data = {'login': login, 'password': password, 'current_date': current_date}
+        return  jsonify(data)
 
 if __name__ == '__main__':
     app()
