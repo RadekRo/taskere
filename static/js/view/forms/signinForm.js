@@ -81,6 +81,7 @@ signinButtonContainer.className = 'd-flex justify-content-center pt-2 w-100';
   const signinButton = document.createElement('signinButton');
         signinButton.className = 'btn btn-success text-white px-5';
         signinButton.textContent = 'SignIn';
+        // signinButton.onclick = 'signin';
 
 signinButtonContainer.appendChild(signinButton)
 
@@ -97,9 +98,9 @@ closeButton.addEventListener('click', () => {
 })
 
 signinButton.addEventListener('click', () => {
-  overlayDiv.remove();
-  signinWindow.remove();
-  signin();
+ // overlayDiv.remove();
+ // signinWindow.remove();
+  signin(overlayDiv, signinWindow);
 })
 
 }

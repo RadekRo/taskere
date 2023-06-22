@@ -16,8 +16,7 @@ export class Board {
                   titleWindow.innerHTML = '';
             expandTitleWindow(titleWindow, { 'title': '... ' + textContent, 
                                              'id': boardId,
-                                            'icon': 'fa-regular fa-clipboard',
-                                            'commercial': true})
+                                            'icon': 'fa-regular fa-clipboard'})
             const mainWindow = document.getElementById('root');
                   mainWindow.innerHTML = '';
             showTaskList(mainWindow, boardId);
