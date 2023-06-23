@@ -69,9 +69,6 @@ def get_current_task_id(cursor):
     result = cursor.fetchone()
     return result['id']
 
-def check_password_repeat(password, password_repeat):
-    return password == password_repeat
-
 def hash_password(user_input):
     salt = bcrypt.gensalt()
     hash = bcrypt.hashpw(user_input.encode(encoding="utf-8"), salt)

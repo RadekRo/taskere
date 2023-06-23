@@ -22,7 +22,7 @@ export const signin = (form, overlay, signinWindow) => {
                     overlay.remove();
                     signinWindow.remove();
                  });
-                }
             }
+    }
  
 

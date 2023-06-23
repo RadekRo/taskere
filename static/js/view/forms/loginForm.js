@@ -36,7 +36,7 @@ export const show_login = () => {
                   userNameInput.id = 'username';
                   userNameInput.type = 'text';
                   userNameInput.maxLength = '50';
-                  userNameInput.name = 'title';
+                  userNameInput.name = 'username';
                   userNameInput.placeholder = 'Username / E-mail';
                   userNameInput.className = 'form-control w-100';
             
@@ -51,28 +51,30 @@ export const show_login = () => {
                   passwordInput.id = 'password';
                   passwordInput.type = 'password';
                   passwordInput.maxLength = '50';
-                  passwordInput.name = 'title';
-                  passwordInput.placeholder = 'Password';
+                  passwordInput.name = 'password';
+                  passwordInput.placeholder = 'password';
                   passwordInput.className = 'form-control w-100';
             
             userPswdContainer.append(passwordInput)
       
       loginForm.append(userPswdContainer)
-    
+
       const loginButtonContainer = document.createElement('div');      
             loginButtonContainer.className = 'd-flex justify-content-center pt-2 w-100';
 
-            const loginButton = document.createElement('loginButton');
+            const loginButton = document.createElement('button');
                   loginButton.className = 'btn btn-success text-white px-5';
                   loginButton.textContent = 'Login';
+                  loginButton.type = 'submit';
 
-            loginButtonContainer.appendChild(loginButton)
+      loginButtonContainer.appendChild(loginButton)
+      loginForm.appendChild(loginButtonContainer)
       
       body.append(overlayDiv);
       loginWindow.appendChild(closeButtonContainer);
       loginWindow.appendChild(titleElement);
       loginWindow.appendChild(loginForm);
-      loginWindow.appendChild(loginButtonContainer);
+      // loginWindow.appendChild(loginButtonContainer);
       overlayDiv.append(loginWindow);
 
       closeButton.addEventListener('click', () => {
@@ -80,10 +82,9 @@ export const show_login = () => {
             loginWindow.remove();
       })
 
-      loginButton.addEventListener('click', () => {
-            overlayDiv.remove();
-            loginWindow.remove();
-            login();
-          })  
-
+      loginForm.addEventListener('submit', event => {
+            console.log(event.target)
+            event.preventDefault();
+            login(event.target, overlayDiv, loginWindow);
+            })
 }

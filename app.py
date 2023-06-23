@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session 
 import data_manager
 
 app = Flask(__name__)
@@ -54,9 +54,28 @@ def add_user():
         password = request.form.get('password')
         hashed_password = data_manager.hash_password(password)
         current_date = data_manager.get_current_date_time()
-        #data_manager.add_new_user(login, hashed_password, current_date)
+        data_manager.add_new_user(login, hashed_password, current_date)
         data = {'login': login}
         return data
+    else:
+        return "Method not allowed!"
+    
+@app.route("/login", methods=["POST"])
+def login_user():
+    if request.method == "POST":
+        login = request.form.get('username')
+        password = request.form.get('password')
+        if data_manager.check_if_user_exists(login):
+            password_from_base = data_manager.get_password_from_base(login)
+            check_password = data_manager.check_password(password, password_from_base['password'])
+            if check_password == True:
+                user_id = data_manager.get_user_id(login)
+                session['username'] = login
+                session['userid'] = user_id['id']
+                data = {'login': login}
+                return data     
+            else:
+                return "Method not allowed!"
 
 if __name__ == '__main__':
     app()

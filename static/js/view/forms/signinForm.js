@@ -82,7 +82,6 @@ signinButtonContainer.className = 'd-flex justify-content-center pt-2 w-100';
         signinButton.className = 'btn btn-success text-white px-5';
         signinButton.textContent = 'SignIn';
         signinButton.type = 'submit';
-        // signinButton.onclick = 'signin';  
 
 signinButtonContainer.appendChild(signinButton)
 signinForm.appendChild(signinButtonContainer)
@@ -102,15 +101,5 @@ signinForm.addEventListener('submit', event => {
  console.log(event.target)
   event.preventDefault();
   signin(event.target, overlayDiv, signinWindow);
-  // signin({ 'overlay': overlayDiv, 'signinWindow': signinWindow, 'usernameInputField': username });
-//   const formData = new FormData(event.target);
-//                 fetch('/add_user', {
-//                     method: 'POST',
-//                     body: formData
-//                 })
-//                 .then(response => response.json())
-//                 .then(response => { console.log(response) });
-// })
-
 })
 }
