@@ -1,14 +1,22 @@
 // export const signin = (formElements) => {
-export const signin = (form) => {
+export const signin = (form, overlay, signinWindow) => {
     const formData = new FormData(form);
     console.log(formData)
+
+
+                // if 
+                // else {
 
                 fetch('/add_user', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.json())
-                .then(response => { console.log(response) });
+                .then(response => { 
+                    overlay.remove();
+                    signinWindow.remove();
+                    console.log(response.login)
+                 });
 
     // let userName = document.getElementById('username');
     //         userName.addEventListener("signin", function(event) {
