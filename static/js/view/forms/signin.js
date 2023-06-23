@@ -1,7 +1,14 @@
-export const signin = (overlayDiv, signinWindow) => {
-    console.log("signin button clicked")
-    console.log(overlayDiv, signinWindow)
+// export const signin = (formElements) => {
+export const signin = (form) => {
+    const formData = new FormData(form);
+    console.log(formData)
 
+                fetch('/add_user', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(response => { console.log(response) });
 
     // let userName = document.getElementById('username');
     //         userName.addEventListener("signin", function(event) {

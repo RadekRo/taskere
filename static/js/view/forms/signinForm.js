@@ -27,7 +27,7 @@ const closeButtonContainer = document.createElement('div');
 const signinForm = document.createElement('form');
       signinForm.id = 'signin_form';
       signinForm.method = 'POST';
-      signinForm.action = '/signin';
+      signinForm.action = '/add_user'
 
 const userNameContainer = document.createElement('div');      
   userNameContainer.className = 'input-group px-2 py-2 w-100';
@@ -36,7 +36,7 @@ const userNameContainer = document.createElement('div');
         userNameInput.id = 'username';
         userNameInput.type = 'text';
         userNameInput.maxLength = '50';
-        userNameInput.name = 'title';
+        userNameInput.name = 'username';
         userNameInput.placeholder = 'Username / E-mail';
         userNameInput.className = 'form-control w-100';
   
@@ -51,7 +51,7 @@ const userPswdContainer = document.createElement('div');
         passwordInput.id = 'password';
         passwordInput.type = 'password';
         passwordInput.maxLength = '50';
-        passwordInput.name = 'title';
+        passwordInput.name = 'password';
         passwordInput.placeholder = 'Password';
         passwordInput.className = 'form-control w-100';
   
@@ -66,7 +66,7 @@ const userPswdContainer = document.createElement('div');
         repeatPasswordInput.id = 'repeat_password';
         repeatPasswordInput.type = 'password';
         repeatPasswordInput.maxLength = '50';
-        repeatPasswordInput.name = 'title';
+        repeatPasswordInput.name = 'repeat_password';
         repeatPasswordInput.placeholder = 'Re-type password';
         repeatPasswordInput.className = 'form-control w-100';
   
@@ -78,18 +78,20 @@ signinForm.append(userRepeatPswdContainer)
 const signinButtonContainer = document.createElement('div');      
 signinButtonContainer.className = 'd-flex justify-content-center pt-2 w-100';
 
-  const signinButton = document.createElement('signinButton');
+  const signinButton = document.createElement('button');
         signinButton.className = 'btn btn-success text-white px-5';
         signinButton.textContent = 'SignIn';
+        signinButton.type = 'submit';
         // signinButton.onclick = 'signin';
 
 signinButtonContainer.appendChild(signinButton)
+signinForm.appendChild(signinButtonContainer)
 
 body.append(overlayDiv);
 signinWindow.appendChild(closeButtonContainer);
 signinWindow.appendChild(titleElement);
 signinWindow.appendChild(signinForm);
-signinWindow.appendChild(signinButtonContainer);
+//signinWindow.appendChild(signinButtonContainer);
 overlayDiv.append(signinWindow);
 
 closeButton.addEventListener('click', () => {
@@ -97,13 +99,20 @@ closeButton.addEventListener('click', () => {
   signinWindow.remove();
 })
 
-signinButton.addEventListener('click', () => {
+signinForm.addEventListener('submit', event => {
  // overlayDiv.remove();
  // signinWindow.remove();
-  signin(overlayDiv, signinWindow);
+  event.preventDefault();
+  signin(event.target);
+  // signin({ 'overlay': overlayDiv, 'signinWindow': signinWindow, 'usernameInputField': username });
+//   const formData = new FormData(event.target);
+//                 fetch('/add_user', {
+//                     method: 'POST',
+//                     body: formData
+//                 })
+//                 .then(response => response.json())
+//                 .then(response => { console.log(response) });
+// })
+
 })
-
 }
-
-
-
