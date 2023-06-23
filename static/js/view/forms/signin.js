@@ -1,12 +1,18 @@
-// export const signin = (formElements) => {
 export const signin = (form, overlay, signinWindow) => {
     const formData = new FormData(form);
-    console.log(formData)
-
-
-                // if 
-                // else {
-
+    if (formData.get('username').trim() === '') {
+        alert('Please enter a username.'); 
+    } 
+    if (formData.get('password').trim() === '') {
+        alert('Please enter a password.'); 
+    } 
+    if (formData.get('repeat_password').trim() === '') {
+        alert('Please re-enter your password.'); 
+    } 
+    if (formData.get('password') !=  formData.get('repeat_password')) {
+        alert('Please enter passwords and re-type identical one.'); 
+    }
+    else {
                 fetch('/add_user', {
                     method: 'POST',
                     body: formData
@@ -15,36 +21,8 @@ export const signin = (form, overlay, signinWindow) => {
                 .then(response => { 
                     overlay.remove();
                     signinWindow.remove();
-                    console.log(response.login)
                  });
+                }
+            }
+ 
 
-    // let userName = document.getElementById('username');
-    //         userName.addEventListener("signin", function(event) {
-            
-    //         event.preventDefault();
-            
-    //         let inputField = document.getElementById('username');
-            
-    //         if (inputField.value.trim() === '') {
-    //             alert('Please enter a username.'); 
-    //         } else {
-    //             const formData = new FormData(this);
-    //             fetch('/add_user', {
-    //                 method: 'POST',
-    //                 body: formData
-    //             })
-    //             .then(response => response.json())
-    //             .then(response => {
-    //                 // let username = document.getElementById('username');
-    //                 // let password = document.getElementById('password');
-    //                 console.log(response)
-    //             })
-    //             .catch(error => {
-    //                 console.error(error);
-    //                 //TODO: Add error handling on the page not only in console
-    //             });
-    //         }
-    //         });
-    
-
-}

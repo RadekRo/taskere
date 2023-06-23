@@ -91,7 +91,6 @@ body.append(overlayDiv);
 signinWindow.appendChild(closeButtonContainer);
 signinWindow.appendChild(titleElement);
 signinWindow.appendChild(signinForm);
-//signinWindow.appendChild(signinButtonContainer);
 overlayDiv.append(signinWindow);
 
 closeButton.addEventListener('click', () => {
@@ -100,8 +99,6 @@ closeButton.addEventListener('click', () => {
 })
 
 signinForm.addEventListener('submit', event => {
- // overlayDiv.remove();
- // signinWindow.remove();
  console.log(event.target)
   event.preventDefault();
   signin(event.target, overlayDiv, signinWindow);
