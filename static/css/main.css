@@ -7,6 +7,10 @@ header {
     color: #777777;
 }
 
+.hidden {
+    display: none;
+}
+
 .p-10 {
     padding: 10px;
 }

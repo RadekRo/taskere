@@ -74,8 +74,8 @@ def login_user():
                 session['userid'] = user_id['id']
                 data = {'login': login}
                 return data     
-            else:
-                return "Method not allowed!"
+    else:
+        return "Method not allowed!"
 
 if __name__ == '__main__':
     app()

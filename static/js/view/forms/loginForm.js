@@ -1,5 +1,5 @@
 import { overlayDiv } from "../overLayers.js";
-import { login } from "../forms/login.js";
+import { login } from "../../controller/login.js";
 
 export const show_login = () => {
 

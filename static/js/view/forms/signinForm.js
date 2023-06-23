@@ -1,5 +1,5 @@
 import { overlayDiv } from "../overLayers.js";
-import { signin } from "../forms/signin.js";
+import { signin } from "../../controller/signin.js";
 
 export const show_signin = () => {
 
@@ -15,6 +15,10 @@ const titleElement = document.createElement('div');
   titleElement.className = 'd-flex justify-content-center user-form-title py-2 border-bottom mb-3';
   titleElement.innerHTML = 'Sign In';
 
+const alertWindow = document.createElement('div');
+      alertWindow.id = 'alert_window'; 
+      alertWindow.className = 'bg-danger text-white text-center rounded mb-2 hidden';
+      
 const closeButtonContainer = document.createElement('div');
   closeButtonContainer.className = 'd-flex justify-content-end'
 
@@ -89,6 +93,7 @@ signinForm.appendChild(signinButtonContainer)
 body.append(overlayDiv);
 signinWindow.appendChild(closeButtonContainer);
 signinWindow.appendChild(titleElement);
+signinWindow.appendChild(alertWindow);
 signinWindow.appendChild(signinForm);
 overlayDiv.append(signinWindow);
 
