@@ -59,6 +59,18 @@ def get_tasks(cursor, board_id):
     return cursor.fetchall()
 
 @database.connection_handler
+def get_cards(cursor, task_id):
+    query = """
+    SELECT *
+    FROM cards 
+    WHERE task_id = %(task_id)s
+    ORDER by id DESC
+    """
+    data = {'task_id': task_id}
+    cursor.execute(query, data)
+    return cursor.fetchall()
+
+@database.connection_handler
 def get_current_task_id(cursor):
     query = """
     SELECT id

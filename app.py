@@ -35,6 +35,14 @@ def get_tasks(boardId):
     else:
         return "Method not allowed!"
 
+@app.route("/get_cards/<taskId>", methods=["GET"])
+def get_cards(taskId):
+    if request.method == "GET":
+        data = data_manager.get_cards(taskId)
+        return jsonify(data)
+    else:
+        return "Method not allowed!"
+
 @app.route("/add_task", methods=["POST"])
 def add_task():
     if request.method == "POST":

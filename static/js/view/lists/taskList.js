@@ -1,3 +1,5 @@
+import { showCardList } from "./cardList.js";
+
 const taskContainer = document.createElement('div');
       taskContainer.setAttribute('id', 'task_list');
       taskContainer.className = 'row px-3';
@@ -18,31 +20,46 @@ export class Task {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleTask.id = id;
-    //     this.singleTask.addEventListener('click', () => {
-    //         console.log('You clicked task with ' + taskId + ' id!');
-    //         let titleWindow = document.getElementById('title_window');
-    //         titleWindow.innerHTML = '';
-    //         expandTitleWindow(titleWindow, {'title': textContent})
-    //         let mainWindow = document.getElementById('root');
-    //         mainWindow.innerHTML = '';
-    //         showTaskList(mainWindow);
+        // this.singleTask.setAttribute("draggable", true);
+        
+        // this.singleTask.ondrag = () => {
+        //     this.singleTask.classList.add('hidden');
+        // };
 
-    //     });
+        // this.singleTask.ondragend = () => {
+        //     this.singleTask.classList.remove('hidden');
+            
+        // };
 
+        // this.singleTask.ondragstart = () => {
+        //     Task.draggedElement = this;
+        // };
+
+        // this.singleTask.ondragover = (event) => {
+        //     event.preventDefault();
+        //     if (Task.draggedElement && Task.draggedElement !== this) {
+        //     let currentWidth = this.singleTask.offsetWidth/2;
+        //     this.card.style.marginLeft = `${currentWidth}px`;
+        //     }
+        // }
+        // this.singleTask.ondragleave = (event) => {
+        //     event.preventDefault();
+        //     if (Task.draggedElement && Task.draggedElement !== this) {
+        //         this.card.style.marginLeft = '0px';
+        //     }
+        // };
+        // this.singleTask.ondrop = (event) => {
+        //     event.preventDefault();
+        //     if (Task.draggedElement && Task.draggedElement !== this) {
+        //         // Perform your desired action here
+        //         console.log('User dropped the item');
+        //     }
+        // };
+        
         this.card = document.createElement('div');
         this.card.className = 'card';
-        this.card.style.transition = 'background-color 0.3s ease';
         this.card.style.backgroundColor = '#f9f9f9';
         this.card.style.height = '150px';
-
-        this.card.addEventListener('mouseover', () => {
-        this.card.style.backgroundColor = '#d9d9f9';
-        this.card.style.cursor = 'pointer';
-        });
-
-        this.card.addEventListener('mouseout', () => {
-        this.card.style.backgroundColor = '#f9f9f9';
-        });
 
         this.cardHeader = document.createElement('div');
         this.cardHeader.className = 'card-header';
@@ -52,11 +69,11 @@ export class Task {
         this.cardBody.className = 'card-body board-info';
         this.cardBody.innerHTML = '';
 
-        this.cardBody.appendChild(document.createElement('br'));
         this.card.appendChild(this.cardHeader);
         this.card.appendChild(this.cardBody);
     
         this.singleTask.appendChild(this.card);
+        showCardList(this.singleTask.querySelector('.card-body'), id);
     }
     appendTo(parentElement) {
         parentElement.insertBefore(this.singleTask, parentElement.firstChild);
@@ -65,8 +82,8 @@ export class Task {
     getNode() {
         return this.singleTask;
     }
-}
 
+}
 export function showTaskList(parentElement, boardId) {
     getAllTasks(boardId)
         .then(taskList => {
@@ -112,3 +129,4 @@ const showTasks = (task_list, taskContainer, parentElement) => {
     });
     parentElement.appendChild(taskContainer);
 };
+
