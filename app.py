@@ -62,7 +62,6 @@ def update_task():
         print(data)
         task_id = data.get('task_id')
         task_title = data.get('task_title')
-        print(task_id, task_title)
         data_manager.update_task_title(task_id, task_title)
         response = 'Task updated successfully!'
         return response
