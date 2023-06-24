@@ -25,8 +25,9 @@ header {
 }
 
 .title-text {
-    font-size: 0.90em;
-    color: grey;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: brown;
 }
 
 .user-form-title {

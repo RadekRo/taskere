@@ -62,12 +62,17 @@ export class Task {
         this.card.style.height = '150px';
 
         this.cardHeader = document.createElement('div');
-        this.cardHeader.className = 'card-header';
-        this.cardHeader.textContent = title;
+        this.cardHeader.className = 'card-header title-text';
+        this.cardHeader.textContent = title.toUpperCase();
         
         this.cardBody = document.createElement('div');
         this.cardBody.className = 'card-body board-info';
-        this.cardBody.innerHTML = '';
+        //this.cardBody.innerHTML = '';
+
+        this.addCardButton = document.createElement('button');
+        this.addCardButton.className = 'btn btn-sm px-0 py-0';
+        this.addCardButton.innerHTML = '<i class="fa-solid fa-plus"></i> Add card';
+        this.cardBody.appendChild(this.addCardButton);
 
         this.card.appendChild(this.cardHeader);
         this.card.appendChild(this.cardBody);
