@@ -71,6 +71,16 @@ def get_cards(cursor, task_id):
     return cursor.fetchall()
 
 @database.connection_handler
+def update_task_title(cursor, task_id, new_title):
+    query = """
+    UPDATE tasks
+    SET title = %(new_title)s
+    WHERE id = %(task_id)s
+    """
+    data = {'task_id': task_id, 'new_title': new_title}
+    cursor.execute(query, data)
+
+@database.connection_handler
 def get_current_task_id(cursor):
     query = """
     SELECT id

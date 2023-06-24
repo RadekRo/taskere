@@ -86,15 +86,18 @@ export class Task {
     
             titleInput.addEventListener('blur', function() {
                 const newTitle = titleInput.value.trim();
-                console.log('id: ' + id)
       
                 if (newTitle !== '') {
                     this.textContent = newTitle.toUpperCase();
+                    const data = { task_title: newTitle, task_id: id }
                         fetch('/update_task', {
                             method: 'POST',
-                            body: JSON.stringify(newTitle)
+                            body: JSON.stringify(data),
+                            headers: {
+                                'Content-Type': 'application/json'
+                              }
                         })
-                        .then(response => response.json())
+                        .then(response => response.text())
                         .then(response => {
                             console.log(response);
                         })

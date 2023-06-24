@@ -54,7 +54,22 @@ def add_task():
         return jsonify(data)
     else:
         return "Method not allowed!"
-    
+
+@app.route("/update_task", methods=["POST"])
+def update_task():
+    if request.method == "POST":
+        data = request.get_json()
+        print(data)
+        task_id = data.get('task_id')
+        task_title = data.get('task_title')
+        print(task_id, task_title)
+        data_manager.update_task_title(task_id, task_title)
+        response = 'Task updated successfully!'
+        return response
+
+    else:
+        return "Method not allowed!"
+
 @app.route("/add_user", methods=["POST"])
 def add_user():
     if request.method == "POST":
