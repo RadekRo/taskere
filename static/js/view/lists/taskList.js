@@ -1,3 +1,4 @@
+import { createCardForm } from "../forms/cardForm.js";
 import { showCardList } from "./cardList.js";
 
 const taskContainer = document.createElement('div');
@@ -64,10 +65,50 @@ export class Task {
         this.cardHeader = document.createElement('div');
         this.cardHeader.className = 'card-header title-text';
         this.cardHeader.textContent = title.toUpperCase();
-        
+        this.cardHeader.style.cursor = 'pointer';
+
+        this.cardHeader.addEventListener('click', function() {
+            const existingText = this.textContent;
+            const existingStyle = getComputedStyle(this);
+            const titleInput = document.createElement('input');
+                  titleInput.type = 'text';
+                  titleInput.value = existingText;
+    
+                  titleInput.style.fontFamily = existingStyle.fontFamily;
+                  titleInput.style.fontSize = existingStyle.fontSize;
+                  titleInput.style.fontWeight = existingStyle.fontWeight;
+                  titleInput.setSelectionRange(existingText.length, existingText.length);
+    
+            this.textContent = '';
+            this.appendChild(titleInput);
+    
+            titleInput.focus();
+    
+            titleInput.addEventListener('blur', function() {
+                const newTitle = titleInput.value.trim();
+                console.log('id: ' + id)
+      
+                if (newTitle !== '') {
+                    this.textContent = newTitle.toUpperCase();
+                        fetch('/update_task', {
+                            method: 'POST',
+                            body: JSON.stringify(newTitle)
+                        })
+                        .then(response => response.json())
+                        .then(response => {
+                            console.log(response);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                } else {
+                    this.textContent = existingText;
+                }
+            }.bind(this));
+        });
+  
         this.cardBody = document.createElement('div');
         this.cardBody.className = 'card-body board-info';
-        //this.cardBody.innerHTML = '';
 
         this.addCardButton = document.createElement('button');
         this.addCardButton.className = 'btn btn-sm px-0 py-0';
@@ -88,6 +129,14 @@ export class Task {
         return this.singleTask;
     }
 
+    editTitle(id) {
+        this.cardHeader.innerHTML = '';
+        this.inputTitle = document.createElement('input');
+        this.inputTitle.contentEditable = true;
+        this.inputTitle.classList.add('title-text');
+        this.inputTitle.innerHTML = this.title; 
+        this.cardHeader.appendChild(this.inputTitle);
+    }
 }
 export function showTaskList(parentElement, boardId) {
     getAllTasks(boardId)
@@ -134,4 +183,3 @@ const showTasks = (task_list, taskContainer, parentElement) => {
     });
     parentElement.appendChild(taskContainer);
 };
-
