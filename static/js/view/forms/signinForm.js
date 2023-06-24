@@ -103,7 +103,6 @@ closeButton.addEventListener('click', () => {
 })
 
 signinForm.addEventListener('submit', event => {
- console.log(event.target)
   event.preventDefault();
   signin(event.target, overlayDiv, signinWindow);
 })
