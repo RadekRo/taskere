@@ -18,13 +18,13 @@ export function createTaskListForm(parentElement) {
               inputTitle.setAttribute('placeholder', 'Enter task title');
 
         const saveTaskButton = document.createElement('button');
-              saveTaskButton.className = 'btn btn-sm bg-success text-white';
+              saveTaskButton.className = 'btn btn-sm bg-success text-white mt-1 me-1';
               saveTaskButton.id = 'save_task';
               saveTaskButton.type = 'submit';
               saveTaskButton.textContent = 'Save'; 
 
         const cancelTaskButton = document.createElement('button');
-              cancelTaskButton.className = 'btn btn-sm bg-danger text-white';
+              cancelTaskButton.className = 'btn btn-sm bg-danger text-white mt-1';
               cancelTaskButton.id = 'cancel_task';
               cancelTaskButton.textContent = 'Cancel';
         
