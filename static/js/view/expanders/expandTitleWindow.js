@@ -1,15 +1,15 @@
 export function expandTitleWindow(titleWindow, options) {
-    
+
+      if (options.return) {
       titleWindow.classList.remove('justify-content-between');
       const backButton = document.createElement('button');
-            backButton.className = 'btn btn-info';
-            backButton.innerHTML = '<i class="fa-solid fa-angles-left"></i>'
-      
+            backButton.className = 'btn btn-info ms-2';
+            backButton.innerHTML = '<i class="fa-solid fa-angles-left"></i>';
       titleWindow.appendChild(backButton)
+      }
 
       const templateElement = document.createElement('div');
-            //templateElement.appendChild(backButton);
-
+      
       if (options.icon) {
             const publicIcon = document.createElement("i");
                   publicIcon.className = options.icon;
