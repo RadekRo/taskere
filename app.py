@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session 
+from flask import Flask, render_template, redirect, request, jsonify, session, url_for
 import data_manager
 
 app = Flask(__name__)
@@ -98,6 +98,10 @@ def login_user():
                 return data     
     else:
         return "Method not allowed!"
+
+@app.route('/main_return')
+def main_return():
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app()

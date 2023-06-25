@@ -3,6 +3,7 @@ export function expandTitleWindow(titleWindow, options) {
       if (options.return) {
       titleWindow.classList.remove('justify-content-between');
       const backButton = document.createElement('button');
+            backButton.id = 'back_button';
             backButton.className = 'btn btn-info ms-2';
             backButton.innerHTML = '<i class="fa-solid fa-angles-left"></i>';
       titleWindow.appendChild(backButton)

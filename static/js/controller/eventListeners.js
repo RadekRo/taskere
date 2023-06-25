@@ -5,7 +5,7 @@ import { show_login } from "../view/forms/loginForm.js";
 import { show_signin } from "../view/forms/signinForm.js";
 import { createTaskListForm } from "../view/forms/taskForm.js";
 import { showAddTaskButton } from "../view/lists/taskList.js";
-
+import { createMainWindow, createTitleWindow } from "../view/htmlBuilder.js";
 
 export function showNewBoardForm() {
     
@@ -35,6 +35,10 @@ document.addEventListener('click', event => {
     if (event.target.id === 'sign_in_link') {
         show_signin();
     }
+    if (event.target.id === 'back_button' || event.target.parentElement.id === 'back_button') {
+       window.location.href = '/main_return';
+    }
+
     if (event.target.id === 'add_task') {
         const taskFormContainer = document.getElementById('add_task_button');
         createTaskListForm(taskFormContainer);
