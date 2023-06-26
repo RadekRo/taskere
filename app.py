@@ -96,12 +96,12 @@ def login_user():
                 user_id = data_manager.get_user_id(login)
                 session['username'] = login
                 session['userid'] = user_id['id']
-                data = {'login': login}
-                print('login successfull')
-                print(user_id)
+                data = {'login': login, 'user_id': user_id['id']}
                 return data
             if check_password == False:
-                print('login unsuccessfull')    
+                print('login unsuccessfull') 
+                comm = {'error': "Login failed"}
+                return jsonify(comm) 
     else:
         return "Method not allowed!"
 

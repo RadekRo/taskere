@@ -14,6 +14,12 @@ export function expandHeader(parentElement, options) {
     if (options.signInButton) {
         buttonsContainer.appendChild(createSignInButton());
     }
+    if (options.showUser) {
+        buttonsContainer.appendChild(createshowUser());
+    }
+    if (options.logoutButton) {
+        buttonsContainer.appendChild(createlogoutbutton());
+    }
 
     parentElement.appendChild(buttonsContainer);
 }
