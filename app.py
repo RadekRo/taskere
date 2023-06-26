@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, request, jsonify, session, url_for
 import data_manager
+import bcrypt
 
 app = Flask(__name__)
+app.secret_key = bcrypt.gensalt()
 
 @app.route("/")
 def index():
@@ -95,7 +97,11 @@ def login_user():
                 session['username'] = login
                 session['userid'] = user_id['id']
                 data = {'login': login}
-                return data     
+                print('login successfull')
+                print(user_id)
+                return data
+            if check_password == False:
+                print('login unsuccessfull')    
     else:
         return "Method not allowed!"
 
