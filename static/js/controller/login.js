@@ -24,7 +24,7 @@ export const login = (form, overlay, loginWindow) => {
                 .then(response => response.json())
                 .then(response => { 
                     if (response.error_password) {
-                        showAlertWindow('Please enter valid password!');
+                        console.log('error_password');
                     }
                     // if (response.error_user) {
                     //     console.log('error_user');
