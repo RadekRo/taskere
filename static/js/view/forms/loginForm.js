@@ -14,6 +14,10 @@ export const show_login = () => {
       const titleElement = document.createElement('div');
             titleElement.className = 'd-flex justify-content-center user-form-title py-2 border-bottom mb-3';
             titleElement.innerHTML = 'Login';
+
+      const alertWindow = document.createElement('div');
+      alertWindow.id = 'alert_window'; 
+      alertWindow.className = 'bg-danger text-white text-center rounded py-2 mb-2 hidden';
     
       const closeButtonContainer = document.createElement('div');
             closeButtonContainer.className = 'd-flex justify-content-end'
@@ -73,6 +77,7 @@ export const show_login = () => {
       body.append(overlayDiv);
       loginWindow.appendChild(closeButtonContainer);
       loginWindow.appendChild(titleElement);
+      loginWindow.appendChild(alertWindow);
       loginWindow.appendChild(loginForm);
       // loginWindow.appendChild(loginButtonContainer);
       overlayDiv.append(loginWindow);

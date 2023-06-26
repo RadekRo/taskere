@@ -1,14 +1,21 @@
 import { expandHeader } from "../view/expanders/expandHeader.js";
 
 export const login = (form, overlay, loginWindow) => {
-    console.log("login button clicked")
     const formData = new FormData(form);
-    if (formData.get('username').trim() === '') {
-        alert('Please enter a username.'); 
+
+    const username = formData.get('username').trim();
+    const password = formData.get('password').trim();
+
+    if (username === '' && password === '') {
+        showAlertWindow('Please fullfill both fields!');
+    }   
+    else if (formData.get('username').trim() === '') {
+        showAlertWindow('Please enter valid username');
     } 
-    if (formData.get('password').trim() === '') {
-        alert('Please enter a password.'); 
+    else if (formData.get('password').trim() === '') {
+        showAlertWindow('Please enter valid password!');
     } 
+
         else {
                 fetch('/login', {
                     method: 'POST',
@@ -31,4 +38,10 @@ export const login = (form, overlay, loginWindow) => {
                     }
                  });
             }
-    }
+}
+const showAlertWindow = (commit) => {
+    const alertWindow = loginWindow.querySelector('#alert_window'); 
+          alertWindow.classList.remove('hidden');
+          alertWindow.innerHTML = '';
+          alertWindow.textContent = commit;
+}
