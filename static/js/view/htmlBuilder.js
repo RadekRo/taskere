@@ -9,9 +9,11 @@ export function createHeader() {
      const header = document.createElement('header');
            header.className = 'd-flex justify-content-between';
      body.appendChild(header)
-     expandHeader(header, { 'logo': true, 
-                            'signInButton': true, 
-                            'loginButton': true });
+     expandHeader(header, {   'logo': true, 
+                              'signInButton': true, 
+                              'loginButton': true,
+                              'logoutButton': false,
+                              'showUserButton': false });
 }
 
 export function createTitleWindow() {

@@ -37,7 +37,9 @@ export const login = (form, overlay, loginWindow) => {
                     header.innerHTML = "";
                     expandHeader(header, { 'logo': true, 
                     'signInButton': false, 
-                    'loginButton': false });
+                    'loginButton': false,
+                    'logoutButton': true,
+                    'showUserButton': true});
                     }
                  });
             }

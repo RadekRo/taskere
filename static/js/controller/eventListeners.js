@@ -3,6 +3,7 @@ import { Board } from "../view/lists/boardList.js";
 import { Task } from "../view/lists/taskList.js";
 import { show_login } from "../view/forms/loginForm.js";
 import { show_signin } from "../view/forms/signinForm.js";
+import { logout } from "../view/forms/logoutForm.js";
 import { createTaskListForm } from "../view/forms/taskForm.js";
 import { showAddTaskButton } from "../view/lists/taskList.js";
 import { createMainWindow, createTitleWindow } from "../view/htmlBuilder.js";
@@ -34,6 +35,9 @@ document.addEventListener('click', event => {
     }
     if (event.target.id === 'sign_in_link') {
         show_signin();
+    }
+    if (event.target.id === 'logout_button') {
+        logout();
     }
     if (event.target.id === 'back_button' || event.target.parentElement.id === 'back_button') {
        window.location.href = '/main_return';

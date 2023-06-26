@@ -1,3 +1,5 @@
+
+
 export function expandHeader(parentElement, options) {
     
     if (options.logo) {
@@ -14,12 +16,13 @@ export function expandHeader(parentElement, options) {
     if (options.signInButton) {
         buttonsContainer.appendChild(createSignInButton());
     }
-    if (options.showUser) {
-        buttonsContainer.appendChild(createshowUser());
+    if (options.showUserButton) {
+        buttonsContainer.appendChild(createshowUserButton());
     }
     if (options.logoutButton) {
         buttonsContainer.appendChild(createlogoutbutton());
     }
+
 
     parentElement.appendChild(buttonsContainer);
 }
@@ -64,4 +67,26 @@ function createSignInButton () {
     const currentDiv = document.getElementById("div");
     document.body.insertBefore(signButton, currentDiv);
     return signButton;
+}
+
+function createlogoutbutton () { 
+    const   logoutButton = document.createElement('logoutButton');
+            logoutButton.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> Logout';
+            logoutButton.className = 'btn btn-sm btn-warning text-dark me-1 text-bold';
+            logoutButton.id = 'logout_button';
+
+    const currentDiv = document.getElementById("div");
+    document.body.insertBefore(logoutButton, currentDiv);
+    return logoutButton;
+}
+
+function createshowUserButton () { 
+    const   showUserButton = document.createElement('showUserButton');
+            showUserButton.innerHTML = '<i class="fa-solid fa-user"></i> You are logged in as';
+            showUserButton.className = 'btn btn-sm btn-success text-dark me-1 text-bold';
+            showUserButton.id = 'show_user';
+
+    const currentDiv = document.getElementById("div");
+    document.body.insertBefore(showUserButton, currentDiv);
+    return showUserButton;
 }
