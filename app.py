@@ -91,6 +91,8 @@ def login_user():
         password = request.form.get('password')
         if data_manager.check_if_user_exists(login):
             password_from_base = data_manager.get_password_from_base(login)
+            check_user = data_manager.check_if_user_exists(login)
+            print(check_user['login'])
             check_password = data_manager.check_password(password, password_from_base['password'])
             if check_password == True:
                 user_id = data_manager.get_user_id(login)
@@ -98,10 +100,12 @@ def login_user():
                 session['userid'] = user_id['id']
                 data = {'login': login, 'user_id': user_id['id']}
                 return data
-            if check_password == False:
-                print('login unsuccessfull') 
-                comm = {'error': "Login failed"}
-                return jsonify(comm) 
+            elif check_password == False:
+                comm = {'error_password': "wrong password"}
+                return jsonify(comm)
+            # elif check_user['login'] == False:
+            #     comm = {'error_username': "wrong user name"}
+            #     return jsonify(comm)
     else:
         return "Method not allowed!"
 

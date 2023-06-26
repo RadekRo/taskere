@@ -17,7 +17,7 @@ const titleElement = document.createElement('div');
 
 const alertWindow = document.createElement('div');
       alertWindow.id = 'alert_window'; 
-      alertWindow.className = 'bg-danger text-white text-center rounded py-2 mb-2 hidden';
+      alertWindow.className = 'bg-warning text-white text-center rounded py-2 mb-2 hidden';
       
 const closeButtonContainer = document.createElement('div');
   closeButtonContainer.className = 'd-flex justify-content-end'
