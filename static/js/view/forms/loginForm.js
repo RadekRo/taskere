@@ -88,7 +88,6 @@ export const show_login = () => {
       })
 
       loginForm.addEventListener('submit', event => {
-            console.log(event.target)
             event.preventDefault();
             login(event.target, overlayDiv, loginWindow);
             })

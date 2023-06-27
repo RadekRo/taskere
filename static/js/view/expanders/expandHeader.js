@@ -44,7 +44,6 @@ function createLogo() {
         logoLink.appendChild(logoImg);
     
     return logo
-
 }
 
 function createLogInButton () {
