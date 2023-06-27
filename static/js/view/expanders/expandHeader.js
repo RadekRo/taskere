@@ -80,10 +80,10 @@ function createlogoutbutton () {
     return logoutButton;
 }
 
-function createshowUserButton () { 
+export function createshowUserButton () { 
     const   showUserButton = document.createElement('showUserButton');
             showUserButton.innerHTML = '<i class="fa-solid fa-user"></i> You are logged in as';
-            showUserButton.className = 'btn btn-sm btn-success text-dark me-1 text-bold';
+            showUserButton.className = 'btn btn-sm btn-info text-dark me-1 text-bold';
             showUserButton.id = 'show_user';
 
     const currentDiv = document.getElementById("div");

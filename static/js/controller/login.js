@@ -1,4 +1,5 @@
 import { expandHeader } from "../view/expanders/expandHeader.js";
+import { createshowUserButton } from "../view/expanders/expandHeader.js"
 
 export const login = (form, overlay, loginWindow) => {
     const formData = new FormData(form);
@@ -31,6 +32,7 @@ export const login = (form, overlay, loginWindow) => {
                     // }
                     else {
                     console.log(response.login, response['user_id']);
+                    createshowUserButton().innerHTML = response.login;
                     overlay.remove();
                     loginWindow.remove();
                     let header = document.querySelector('header');
