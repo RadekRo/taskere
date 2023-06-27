@@ -17,7 +17,7 @@ export function expandHeader(parentElement, options) {
         buttonsContainer.appendChild(createSignInButton());
     }
     if (options.showUserButton) {
-        buttonsContainer.appendChild(createshowUserButton());
+        buttonsContainer.appendChild(createshowUserButton(options.user));
     }
     if (options.logoutButton) {
         buttonsContainer.appendChild(createlogoutbutton());
@@ -80,9 +80,9 @@ function createlogoutbutton () {
     return logoutButton;
 }
 
-export function createshowUserButton () { 
+export function createshowUserButton (user) { 
     const   showUserButton = document.createElement('showUserButton');
-            showUserButton.innerHTML = '<i class="fa-solid fa-user"></i> You are logged in as';
+            showUserButton.innerHTML = '<i class="fa-solid fa-user"></i> You are logged in as ' + user;
             showUserButton.className = 'btn btn-sm btn-info text-dark me-1 text-bold';
             showUserButton.id = 'show_user';
 

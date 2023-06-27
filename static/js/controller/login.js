@@ -41,7 +41,8 @@ export const login = (form, overlay, loginWindow) => {
                     'signInButton': false, 
                     'loginButton': false,
                     'logoutButton': true,
-                    'showUserButton': true});
+                    'showUserButton': true, 
+                    'user': response.login});
                     }
                  });
             }
