@@ -21,34 +21,34 @@ export class Task {
         this.singleTask = document.createElement('div');
         this.singleTask.className = 'col-lg-2 col-md-4 col-sm-6 col-xs-12 p-1';
         this.singleTask.id = id;
-        // this.singleTask.setAttribute("draggable", true);
+
+        this.singleTask.setAttribute("draggable", true);
         
-        // this.singleTask.ondrag = () => {
-        //     this.singleTask.classList.add('hidden');
-        // };
+        this.singleTask.ondrag = () => {
+            this.singleTask.classList.add('hidden');
+        };
 
-        // this.singleTask.ondragend = () => {
-        //     this.singleTask.classList.remove('hidden');
+        this.singleTask.ondragend = () => {
+            this.singleTask.classList.remove('hidden');  
+        };
+
+        this.singleTask.ondragstart = () => {
+            Task.draggedElement = this;
+        };
+
+        this.singleTask.ondragover = (event) => {
+            event.preventDefault();
+            if (Task.draggedElement && Task.draggedElement !== this) {
+                let draggedElement = Task.draggedElement.singleTask;
+                let draggedOverElement = event.currentTarget;
+                if (draggedElement.nextSibling === draggedOverElement) {
+                  return; 
+                }
+                draggedOverElement.parentNode.insertBefore(draggedElement, draggedOverElement);
+              }
             
-        // };
-
-        // this.singleTask.ondragstart = () => {
-        //     Task.draggedElement = this;
-        // };
-
-        // this.singleTask.ondragover = (event) => {
-        //     event.preventDefault();
-        //     if (Task.draggedElement && Task.draggedElement !== this) {
-        //     let currentWidth = this.singleTask.offsetWidth/2;
-        //     this.card.style.marginLeft = `${currentWidth}px`;
-        //     }
-        // }
-        // this.singleTask.ondragleave = (event) => {
-        //     event.preventDefault();
-        //     if (Task.draggedElement && Task.draggedElement !== this) {
-        //         this.card.style.marginLeft = '0px';
-        //     }
-        // };
+        } 
+  
         // this.singleTask.ondrop = (event) => {
         //     event.preventDefault();
         //     if (Task.draggedElement && Task.draggedElement !== this) {
@@ -140,6 +140,10 @@ export class Task {
         this.inputTitle.innerHTML = this.title; 
         this.cardHeader.appendChild(this.inputTitle);
     }
+
+    // static getHeaderName() {
+    //     console.log('Accessing the header name from the dragged element.');
+    // }
 }
 export function showTaskList(parentElement, boardId) {
     getAllTasks(boardId)
